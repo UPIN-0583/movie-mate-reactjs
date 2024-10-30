@@ -30,11 +30,11 @@ const Header = () => {
 
             {/* Navigation Links */}
             <nav className="flex space-x-6">
-                <a href="#" className="hover:text-indigo-400">Trang chủ</a>
-                <a href="#" className="hover:text-indigo-400">Phim</a>
-                <a href="#" className="hover:text-indigo-400">Khuyến mãi</a>
-                <a href="#" className="hover:text-indigo-400">Rạp chiếu phim</a>
-                <a href="#" className="hover:text-indigo-400">Review phim</a>
+                <Link to={ROUTING_HOME} className="hover:text-yellow-500">Trang chủ</Link>
+                <a href="#" className="hover:text-yellow-500">Phim</a>
+                <a href="#" className="hover:text-yellow-500">Khuyến mãi</a>
+                <a href="#" className="hover:text-yellow-500">Rạp chiếu phim</a>
+                <a href="#" className="hover:text-yellow-500">Review phim</a>
             </nav>
 
             {/* Search and Login */}
@@ -54,7 +54,7 @@ const Header = () => {
 
                 {/* Login Button */}
                 <Link to={ROUTING_LOGIN}
-                      className="text-indigo-400 flex items-center space-x-1 hover:text-indigo-300">
+                      className="flex items-center space-x-1 hover:text-yellow-500">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
