@@ -1,6 +1,6 @@
-import {Header} from "../conponent/header";
-import {Outlet} from "react-router-dom";
-import {Footer} from "../conponent/footer";
+import { Header } from "../component/header";
+import { Outlet } from "react-router-dom";
+import { Footer } from "../component/footer";
 
 const Layout = () => {
 
@@ -14,4 +14,4 @@ const Layout = () => {
 
 }
 
-export {Layout}
+export { Layout }

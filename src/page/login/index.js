@@ -1,8 +1,8 @@
 
 import React from 'react';
 import loginImage from './login.jpg';
-import {Link} from "react-router-dom";
-import {ROUTING_SIGNUP} from "../../router";
+import { Link } from "react-router-dom";
+import { ROUTING_SIGNUP } from "../../router";
 
 const LoginPage = () => {
     return (
