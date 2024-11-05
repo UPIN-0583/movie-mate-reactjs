@@ -1,7 +1,9 @@
-
+import { Banner } from "../../component/banner";
 const HomePage = () => {
     return (
-        <div>This Is Home Page OKE!!!!  ý kiến?</div>
+        <div>
+            <Banner/>
+        </div>
     )
 }
 

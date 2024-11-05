@@ -15,3 +15,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px; /* Độ rộng của scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff; /* Màu nền của track (nền của scrollbar) */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #f1c40f; /* Màu của phần kéo (thumb) */
+  border-radius: 10px; /* Bo tròn các góc */
+  border: 2px solid #ffffff; /* Viền xung quanh để tạo khoảng cách với track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #e1b12c; /* Màu của thumb khi hover */
+}
