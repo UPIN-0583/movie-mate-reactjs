@@ -15,6 +15,9 @@ import NowShowingMovie13 from './NowShowingMovie13.png';
 import NowShowingMovie14 from './NowShowingMovie14.jpg';
 import NowShowingMovie15 from './NowShowingMovie15.jpg';
 import NowShowingMovie16 from './NowShowingMovie16.jpg';
+import Promotion1 from './Promotion1.png'
+import Promotion2 from './Promotion2.png'
+import Promotion3 from './Promotion3.png'
 import bookingIcon from './bookingIcon.svg';
 import trailerIcon from './trailerIcon.svg';
 import timeIcon from './timeIcon.svg';
@@ -45,5 +48,9 @@ export default {
     timeIcon,
     signUp,
     login,
-    searchIcon
+    searchIcon,
+    Promotion1,
+    Promotion2,
+    Promotion3,
+
 };

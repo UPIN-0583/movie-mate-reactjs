@@ -1,8 +1,9 @@
 import { Banner } from "../component/Banner";
-import { NowShowingMovieList } from "../component/NowShowingMovieList";
 import { Navigate } from "../component/Navigate";
-import images from "../asset"
+import { NowShowingMovieList } from "../component/NowShowingMovieList";
 import { UpComingMovieList } from "../component/UpComingMovieList";
+import { PromotionList } from "../component/PromotionList";
+import images from "../asset"
 
 const HomePage = () => {
     const nowShowingMovies = [
@@ -141,6 +142,25 @@ const HomePage = () => {
             rating: "⭐⭐⭐⭐⭐",
         }
     ]
+    const promotions = [
+        {
+            image: images.Promotion1,
+            title: "Promotion 1",
+        },
+        {
+            image: images.Promotion2,
+            title: "Promotion 2",
+        },
+        {
+            image: images.Promotion3,
+            title: "Promotion 3",
+        },
+        {
+            image: images.Promotion3,
+            title: "Promotion 3",
+        }
+    ];
+
     return (
         <div className="bg-gray-900">
             <div className="w-11/12 m-auto pt-10">
@@ -152,15 +172,15 @@ const HomePage = () => {
             </div>
 
             <div className="w-11/12 m-auto justify-center">
-                <div className="">
-                    <NowShowingMovieList movies={nowShowingMovies} />
-                </div>
+                <NowShowingMovieList movies={nowShowingMovies} />
             </div>
 
             <div className="w-11/12 m-auto justify-center">
-                <div className="">
-                    <UpComingMovieList movies={upComingMovies} />
-                </div>
+                <UpComingMovieList movies={upComingMovies} />
+            </div>
+
+            <div className="w-11/12 m-auto justify-center">
+                <PromotionList promotions={promotions} />
             </div>
         </div>
     )

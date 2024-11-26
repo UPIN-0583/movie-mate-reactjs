@@ -41,7 +41,7 @@ const SignUpPage = () => {
             <div
                 className="absolute inset-0 z-0 bg-contain bg-center my-1"
                 style={{
-                    backgroundImage: images.signUp,
+                    backgroundImage: `url(${images.signUp})`,
                     backgroundRepeat: 'no-repeat',
                     opacity: 0.4,
                 }}
@@ -162,8 +162,8 @@ const SignUpPage = () => {
                             type="checkbox"
                             className="mr-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
                         />
-                        <label>
-                            Bằng việc đăng ký tài khoản tôi đồng ý với điều khoản dịch vụ và chính sách bảo mật của Watcher
+                        <label className='text-sm'>
+                            Bằng việc đăng ký tài khoản tôi đồng ý với điều khoản dịch vụ và chính sách bảo mật của MovieMate
                         </label>
                     </div>
                     {errors.termsAccepted && <p className="text-red-500">{errors.termsAccepted.message}</p>}
