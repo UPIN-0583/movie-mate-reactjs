@@ -20,6 +20,7 @@ import trailerIcon from './trailerIcon.svg';
 import timeIcon from './timeIcon.svg';
 import signUp from './signUp.jpg'
 import login from './login.jpg'
+import searchIcon from './searchIcon.svg'
 
 export default {
     NowShowingMovie1,
@@ -43,5 +44,6 @@ export default {
     trailerIcon,
     timeIcon,
     signUp,
-    login
+    login,
+    searchIcon
 };

@@ -4,6 +4,8 @@ import { HomePage } from "../page/Home.js";
 import { Layout } from "../page/layout.js";
 import { SignUpPage } from "../page/SignUp.js";
 import { LoginPage } from "../page/Login.js";
+import { MovieDetailUC } from "../page/MovieDetailUC.js";
+import { MovieDetailNS } from '../page/MovieDetailNS.js'; 
 
 
 const WebRouter = () => {
@@ -18,11 +20,15 @@ const WebRouter = () => {
                     {/*Trang Chu*/}
                     <Route path={ROUTING_HOME} element={<HomePage />} />
 
+
                     {/*Header*/}
                     <Route path={ROUTING_SIGNUP} element={<SignUpPage />} />
                     <Route path={ROUTING_LOGIN} element={<LoginPage />} />
 
 
+                    {/* Trang chi tiết phim */}
+                    <Route path="/moviedetailUC" element={<MovieDetailUC />} />
+                    <Route path="/moviedetailNS" element={<MovieDetailNS />} />
                 </Route>
 
             </Routes>
