@@ -1,9 +1,9 @@
 import React from 'react';
-import signUpImage from './sign-up.jpg';
-import { ROUTING_LOGIN } from "../../router";
+import { ROUTING_LOGIN } from "../router";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {useCreateUser} from "../../api/user/useCreateUser";
+import { useCreateUser } from "../api/user/useCreateUser";
+import images from "../asset";
 
 const SignUpPage = () => {
     const {
@@ -18,7 +18,7 @@ const SignUpPage = () => {
         }
     });
 
-    const {mutate: createUser} = useCreateUser();
+    const { mutate: createUser } = useCreateUser();
 
     const onSubmit = (data) => {
         createUser({
@@ -41,7 +41,7 @@ const SignUpPage = () => {
             <div
                 className="absolute inset-0 z-0 bg-contain bg-center my-1"
                 style={{
-                    backgroundImage: `url(${signUpImage})`,
+                    backgroundImage: images.signUp,
                     backgroundRepeat: 'no-repeat',
                     opacity: 0.4,
                 }}

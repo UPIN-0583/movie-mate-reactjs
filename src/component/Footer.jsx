@@ -1,6 +1,6 @@
-import { ROUTING_FACEBOOK, ROUTING_HOME, ROUTING_LINKDIN, ROUTING_TWITTER, ROUTING_YOUTUBE } from "../../router";
+import { ROUTING_FACEBOOK, ROUTING_HOME, ROUTING_LINKDIN, ROUTING_TWITTER, ROUTING_YOUTUBE } from "../router";
 import { Link } from "react-router-dom";
-import Logo from "../../asset/logo.svg"
+import images from "../asset"
 
 const Footer = () => {
     return (
@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className="flex justify-center mb-10">
                     <Link to={ROUTING_HOME}>
                         <div className="flex items-center">
-                            <img src={Logo} alt="MovieMate Logo" className="w-50 h-25" />
+                            <img src={images.logo} alt="MovieMate Logo" className="w-50 h-25" />
                         </div>
                     </Link>
                 </div>

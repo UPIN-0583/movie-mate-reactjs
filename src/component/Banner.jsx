@@ -70,11 +70,11 @@ const Banner = () => {
 
   return (
     <div
-      className="relative w-full h-[600px] bg-cover bg-center"
+      className="relative w-full h-[600px] bg-cover bg-center rounded-lg"
       style={{ backgroundImage: `url(${selectedMovie.backgroundImage})` }}
     >
       {/* Phần bên trái: Chi tiết phim */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-start justify-start pl-12 pr-8 py-10">
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-start justify-start pl-12 pr-8 py-10 rounded-lg">
         <div className="text-white max-w-md space-y-4 text-left">
           {/* Xếp hạng sao */}
           <div className="flex items-center space-x-1 text-yellow-400 text-2xl mb-4">
@@ -129,18 +129,16 @@ const Banner = () => {
             <img
               src={movie.thumbnail}
               alt={movie.title}
-              className={`w-[230px] h-[150px] object-cover transition-transform bg-cover ${
-                selectedMovie.id === movie.id ? "scale-105" : ""
-              }`}
+              className={`w-[230px] h-[150px] object-cover transition-transform bg-cover ${selectedMovie.id === movie.id ? "scale-105" : ""
+                }`}
             />
 
             {/* Lớp phủ mờ khi được chọn hoặc hover */}
             <div
-              className={`absolute inset-0 bg-black bg-opacity-40 ${
-                selectedMovie.id === movie.id
-                  ? "opacity-100"
-                  : "opacity-0 hover:opacity-80"
-              } transition-opacity`}
+              className={`absolute inset-0 bg-black bg-opacity-40 ${selectedMovie.id === movie.id
+                ? "opacity-100"
+                : "opacity-0 hover:opacity-80"
+                } transition-opacity`}
             ></div>
 
             {/* Viền màu vàng khi được chọn */}

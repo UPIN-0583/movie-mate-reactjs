@@ -1,8 +1,8 @@
 
 import React from 'react';
-import loginImage from './login.jpg';
+import images from '../asset';
 import { Link } from "react-router-dom";
-import { ROUTING_SIGNUP } from "../../router";
+import { ROUTING_SIGNUP } from "../router";
 
 const LoginPage = () => {
     return (
@@ -11,7 +11,7 @@ const LoginPage = () => {
                 {/* Hình ảnh bên trái */}
                 <div className="flex-1 hidden md:block">
                     <img
-                        src={loginImage}
+                        src={images.login}
                         alt="Login visual"
                         className="w-full h-full object-cover rounded-l-lg"
                     />

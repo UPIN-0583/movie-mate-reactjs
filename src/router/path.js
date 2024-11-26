@@ -5,7 +5,7 @@ export const ROUTING_HOME = "/"
 
 
 //Header
-export const ROUTING_SIGNUP = "/sign-up"
+export const ROUTING_SIGNUP = "/signup"
 export const ROUTING_LOGIN = "/login"
 
 //Footer

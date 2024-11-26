@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
-import {ROUTING_HOME, ROUTING_LOGIN} from "../../router";
+import {ROUTING_HOME, ROUTING_LOGIN} from "../router/path";
+import images from "../asset"
 
 const Header = () => {
     return (
@@ -7,24 +8,7 @@ const Header = () => {
             {/* Logo */}
             <Link to={ROUTING_HOME}>
                 <div className="flex items-center space-x-2">
-                    <div className="bg-indigo-600 p-2 rounded-md">
-                        {/* Icon */}
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6 text-white"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M12 3v18m9-9H3"
-                            />
-                        </svg>
-                    </div>
-                    <span className="text-xl font-bold">WATCHER</span>
+                    <img src={images.logo} alt="MovieMate Logo" className="w-50 h-25" />
                 </div>
             </Link>
 
