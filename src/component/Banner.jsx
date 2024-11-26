@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import images from "../asset"
 
 const movies = [
   {
@@ -106,14 +107,28 @@ const Banner = () => {
           </p>
 
           {/* Các nút hành động */}
-          <div className="flex space-x-4 mt-6 pt-20">
-            <button className="flex items-center bg-white text-black px-5 py-3  w-[160px] h-[60px] rounded-full hover:bg-gray-300 transition">
-              <span className="mr-2">🎬</span> Xem Trailer
+         <div className="flex space-x-4 mt-6 pt-20">
+            {/* Button Đặt vé */}
+            <button className="bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg mb-2 flex items-center justify-center text-lg w-40 h-12">
+                <img
+                    src={images.bookingIcon}
+                    alt="Booking"
+                    className="w-6 h-6"
+                />
+                <p className="ps-2">Đặt vé</p>
             </button>
-            <button className="flex items-center bg-yellow-500 text-black px-5 py-3 w-[160px] h-[60px] rounded-full hover:bg-yellow-600 transition">
-              <span className="mr-2 pr-4">📅</span> Đặt vé
+
+            {/* Button Xem Trailer */}
+            <button className="bg-transparent border border-white text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center text-sm w-40 h-12">
+                <img
+                    src={images.trailerIcon}
+                    alt="Trailer"
+                    className="w-6 h-6"
+                />
+                <p className="ps-2">Xem Trailer</p>
             </button>
-          </div>
+        </div>
+
         </div>
       </div>
 
