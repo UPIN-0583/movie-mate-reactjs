@@ -1,16 +1,19 @@
-import './App.css';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import {WebRouter} from "./router";
+import "./App.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WebRouter } from "./router";
+import { MovieProvider } from "./context/MovieContext";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
+    <MovieProvider>
+      <div className="App">
         <QueryClientProvider client={queryClient}>
-            <WebRouter />
+          <WebRouter />
         </QueryClientProvider>
-    </div>
+      </div>
+    </MovieProvider>
   );
 }
 

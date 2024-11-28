@@ -40,7 +40,7 @@ const UpComingMovieCard = ({ movie }) => {
                     onClick={handleClick}
                 >
                     <button 
-                        className="bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg mb-2 flex items-center text-sm w-35"
+                        className="bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg mb-2 flex items-center justify-center text-sm w-40"
                         onClick={(e) => {
                             e.stopPropagation(); // Ngăn sự kiện lan đến thẻ cha
                             handleClick(); // Gọi hàm điều hướng
@@ -54,7 +54,7 @@ const UpComingMovieCard = ({ movie }) => {
                         <p className='ps-2'>Tìm hiểu ngay</p>
                     </button>
                     <button 
-                        className="bg-transparent border border-white text-white font-bold py-2 px-4 rounded-lg flex items-center text-sm w-35"
+                        className="bg-transparent border border-white text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center text-sm w-40 "
                         onClick={(e) => {
                             e.stopPropagation(); // Ngăn sự kiện lan đến thẻ cha
                             handleWatchTrailerClick(); // Mở trailer

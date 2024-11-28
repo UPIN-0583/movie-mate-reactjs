@@ -1,27 +1,11 @@
 import React, { useState } from "react";
-import images from "../asset";
-import { NowShowingMovieCard } from "../component/NowShowingMovieCard";
 import { UpComingMovieCard } from "../component/UpComingMovieCard";
+import { useMovies } from "../context/MovieContext";
 
 const MovieListUC = () => {
-  const nowShowingMovies = [
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie1, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie2, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie3, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie4, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie5, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie6, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie7, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie8, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie9, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie10, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie11, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie12, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie13, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie14, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie15, rating: "⭐⭐⭐⭐⭐"},
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie16, rating: "⭐⭐⭐⭐⭐"},
-  ];
+  const { movies } = useMovies();
+  const upcomingMovies = movies.upcoming || []; // Lấy dữ liệu phim "Đang Chiếu"
+
 
   // State to manage how many movies are shown
   const [visibleMovies, setVisibleMovies] = useState(12);
@@ -41,14 +25,14 @@ const MovieListUC = () => {
 
         {/* Movie List */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1 gap-y-8 mb-8">
-          {nowShowingMovies.slice(0, visibleMovies).map((movie, index) => (
+          {upcomingMovies.slice(0, visibleMovies).map((movie, index) => (
             <UpComingMovieCard key={index} movie={movie} />
           ))}
         </div>
       </div>
 
       {/* "Xem thêm" button section */}
-      {visibleMovies < nowShowingMovies.length && (
+      {visibleMovies < upcomingMovies.length && (
         <div className="flex justify-center items-center mb-8">
           <button
             onClick={handleSeeMore}

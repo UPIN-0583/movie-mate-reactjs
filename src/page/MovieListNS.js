@@ -1,26 +1,11 @@
-import React, { useState } from "react";
-import images from "../asset";
+import React, { useState, useEffect } from "react";
 import { NowShowingMovieCard } from "../component/NowShowingMovieCard";
+import { useMovies } from "../context/MovieContext";
 
 const MovieListNS = () => {
-  const nowShowingMovies = [
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie1, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie2, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie3, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie4, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie5, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie6, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie7, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie8, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie9, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie10, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie11, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie12, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie13, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie14, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie15, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-    { title: "Ngày Xưa Có Một Chuyện Tình", poster: images.NowShowingMovie16, rating: "⭐⭐⭐⭐⭐", time: "2h 4m" },
-  ];
+  // Lấy dữ liệu phim từ MovieContext
+  const { movies } = useMovies();
+  const nowShowingMovies = movies.nowShowing || []; // Lấy dữ liệu phim "Đang Chiếu"
 
   // State to manage how many movies are shown
   const [visibleMovies, setVisibleMovies] = useState(12);
