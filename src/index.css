@@ -34,3 +34,18 @@ code {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #e1b12c; /* Màu của thumb khi hover */
 }
+
+.bg-seatMap {
+  background-image: url('./asset/seatMap.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position-y: 5px;
+}
+
+.bg-signUp {
+  background-image: url('./asset/signUp.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4,
+}

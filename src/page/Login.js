@@ -6,8 +6,8 @@ import { ROUTING_SIGNUP } from "../router";
 
 const LoginPage = () => {
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900">
-            <div className="max-w-4xl w-full bg-gray-800 bg-opacity-90 p-8 rounded-lg shadow-lg flex flex-col md:flex-row">
+        <div className="bg-[#151515] min-h-screen flex flex-col items-center justify-center ">
+            <div className="max-w-4xl w-full bg-[#1E1E1E] bg-opacity-90 p-8 rounded-lg shadow-lg flex flex-col md:flex-row">
                 {/* Hình ảnh bên trái */}
                 <div className="flex-1 hidden md:block">
                     <img

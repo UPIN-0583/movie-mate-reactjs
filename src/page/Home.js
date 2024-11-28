@@ -10,10 +10,10 @@ const HomePage = () => {
     const nowShowingMovies = movies.nowShowing || [];
     const upComingMovies = movies.upcoming || [];
     const promotions = movies.promotions || [];
-    
+
 
     return (
-        <div className="bg-gray-900">
+        <div className="bg-[#151515]">
             <div className="w-11/12 m-auto pt-10">
                 <Banner />
             </div>

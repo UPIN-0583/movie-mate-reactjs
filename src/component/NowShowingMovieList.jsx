@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { NowShowingMovieCard } from "./NowShowingMovieCard";
-import { useNavigate } from "react-router-dom";
-import { ROUTING_MOVIELIST_NS } from "../router/path";
 
 const NowShowingMovieList = ({ movies }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -31,15 +29,8 @@ const NowShowingMovieList = ({ movies }) => {
     );
   };
 
-  const navigate = useNavigate(); // Khởi tạo useNavigate
-
-  // Hàm xử lý sự kiện nhấn nút "XEM THÊM"
-  const handleSeeMore = () => {
-    navigate(ROUTING_MOVIELIST_NS); // Chuyển hướng đến đường dẫn MovieListNS từ path.js
-  };
-
   return (
-    <div className="bg-gray-900 py-8">
+    <div className="bg-transparent py-8">
       <div className="text-center font-bold text-white text-2xl mb-6">
         PHIM ĐANG CHIẾU
       </div>
@@ -47,7 +38,7 @@ const NowShowingMovieList = ({ movies }) => {
         {/* Nút mũi tên trái */}
         <button
           onClick={handlePrev}
-          className="left-1 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
+          className="left-1 text-white rounded-lg text-4xl font-bold hover:bg-gray-700 transition"
         >
           {"<"}
         </button>
@@ -64,7 +55,7 @@ const NowShowingMovieList = ({ movies }) => {
             }}
           >
             {movieGroups.map((group, index) => (
-              <div key={index} className="flex w-full  justify-around mx-2">
+              <div key={index} className="flex w-full  justify-between mx-16">
                 {group.map((movie, idx) => (
                   <NowShowingMovieCard movie={movie} />
                 ))}
@@ -76,17 +67,15 @@ const NowShowingMovieList = ({ movies }) => {
         {/* Nút mũi tên phải */}
         <button
           onClick={handleNext}
-          className="right-1 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
+          className="right-1 text-white p-2 rounded-lg font-bold text-4xl hover:bg-gray-700 transition"
         >
           {">"}
         </button>
       </div>
 
       {/* Nút Xem thêm */}
-      <div className="text-center mt-4">
-        <button 
-        className="w-[200px] bg-blue-500 text-black font-bold py-2 px-6 rounded-sm hover:bg-blue-600 transition"
-        onClick={handleSeeMore}>
+      <div className="text-center mt-8">
+        <button className="w-[200px] bg-[#9CB2F5] text-black font-bold py-2 px-6 rounded-sm hover:bg-blue-600 transition">
           XEM THÊM
         </button>
       </div>

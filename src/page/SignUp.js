@@ -3,7 +3,6 @@ import { ROUTING_LOGIN } from "../router";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useCreateUser } from "../api/user/useCreateUser";
-import images from "../asset";
 
 const SignUpPage = () => {
     const {
@@ -36,19 +35,14 @@ const SignUpPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 relative">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-[#151515] relative">
             {/* Tấm ảnh nền */}
             <div
-                className="absolute inset-0 z-0 bg-contain bg-center my-1"
-                style={{
-                    backgroundImage: `url(${images.signUp})`,
-                    backgroundRepeat: 'no-repeat',
-                    opacity: 0.4,
-                }}
+                className="bg-signUp absolute inset-0 z-0 bg-contain bg-center rounded-lg w-[600px] border border-white m-auto"
             ></div>
 
             {/* Form đăng ký */}
-            <div className="relative z-10 bg-gray-800 bg-opacity-75 backdrop-blur-sm border border-gray-700 p-8 rounded-lg shadow-lg max-w-md w-full mx-4">
+            <div className="bg-[#151515] relative z-10 bg-opacity-75 backdrop-blur-sm border border-gray-700 p-8 rounded-lg shadow-lg max-w-md w-full mx-4">
                 <h2 className="text-2xl font-bold text-center text-white mb-6">Đăng ký</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import images from "../asset"
+import images from "../asset";
 
 const movies = [
   {
@@ -29,8 +29,7 @@ const movies = [
     releaseDate: "6 tháng 5, 2011",
     backgroundImage:
       "https://file.kenhsinhvien.vn/2018/04/07/conan-movie-22.jpg",
-    thumbnail:
-      "https://file.kenhsinhvien.vn/2018/04/07/conan-movie-22.jpg",
+    thumbnail: "https://file.kenhsinhvien.vn/2018/04/07/conan-movie-22.jpg",
     rating: 4,
   },
   {
@@ -71,7 +70,7 @@ const Banner = () => {
 
   return (
     <div
-      className="relative w-full h-[600px] bg-cover bg-center rounded-lg"
+      className="relative w-full h-[600px] bg-cover bg-center rounded-lg border border-white"
       style={{ backgroundImage: `url(${selectedMovie.backgroundImage})` }}
     >
       {/* Phần bên trái: Chi tiết phim */}
@@ -107,28 +106,19 @@ const Banner = () => {
           </p>
 
           {/* Các nút hành động */}
-         <div className="flex space-x-4 mt-6 pt-20">
+          <div className="flex space-x-4 mt-6 pt-20">
             {/* Button Đặt vé */}
             <button className="bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg mb-2 flex items-center justify-center text-lg w-40 h-12">
-                <img
-                    src={images.bookingIcon}
-                    alt="Booking"
-                    className="w-6 h-6"
-                />
-                <p className="ps-2">Đặt vé</p>
+              <img src={images.bookingIcon} alt="Booking" className="w-6 h-6" />
+              <p className="ps-2">Đặt vé</p>
             </button>
 
             {/* Button Xem Trailer */}
             <button className="bg-transparent border border-white text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center text-sm w-40 h-12">
-                <img
-                    src={images.trailerIcon}
-                    alt="Trailer"
-                    className="w-6 h-6"
-                />
-                <p className="ps-2">Xem Trailer</p>
+              <img src={images.trailerIcon} alt="Trailer" className="w-6 h-6" />
+              <p className="ps-2">Xem Trailer</p>
             </button>
-        </div>
-
+          </div>
         </div>
       </div>
 
@@ -144,16 +134,18 @@ const Banner = () => {
             <img
               src={movie.thumbnail}
               alt={movie.title}
-              className={`w-[230px] h-[150px] object-cover transition-transform bg-cover ${selectedMovie.id === movie.id ? "scale-105" : ""
-                }`}
+              className={`w-[230px] h-[150px] object-cover transition-transform bg-cover ${
+                selectedMovie.id === movie.id ? "scale-105" : ""
+              }`}
             />
 
             {/* Lớp phủ mờ khi được chọn hoặc hover */}
             <div
-              className={`absolute inset-0 bg-black bg-opacity-40 ${selectedMovie.id === movie.id
-                ? "opacity-100"
-                : "opacity-0 hover:opacity-80"
-                } transition-opacity`}
+              className={`absolute inset-0 bg-black bg-opacity-40 ${
+                selectedMovie.id === movie.id
+                  ? "opacity-100"
+                  : "opacity-0 hover:opacity-80"
+              } transition-opacity`}
             ></div>
 
             {/* Viền màu vàng khi được chọn */}

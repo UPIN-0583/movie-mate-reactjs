@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import NowShowingMovie from './NowShowingMovie.jpg';
 import NowShowingMovie1 from './NowShowingMovie1.jpg';
 import NowShowingMovie2 from './NowShowingMovie2.jpg';
 import NowShowingMovie3 from './NowShowingMovie3.jpg';
@@ -15,17 +16,29 @@ import NowShowingMovie13 from './NowShowingMovie13.png';
 import NowShowingMovie14 from './NowShowingMovie14.jpg';
 import NowShowingMovie15 from './NowShowingMovie15.jpg';
 import NowShowingMovie16 from './NowShowingMovie16.jpg';
+
 import Promotion1 from './Promotion1.png'
 import Promotion2 from './Promotion2.png'
 import Promotion3 from './Promotion3.png'
+
 import bookingIcon from './bookingIcon.svg';
 import trailerIcon from './trailerIcon.svg';
 import timeIcon from './timeIcon.svg';
+import timeBlackIcon from './timeBlackIcon.svg';
+import starYellowIcon from './starYellowIcon.svg'
+import starGrayIcon from './starGrayIcon.svg'
+import screenIcon from './screenIcon.png'
+import searchIcon from './searchIcon.svg'
+import seatWhiteIcon from './seatWhiteIcon.svg'
+import seatGrayIcon from './seatGrayIcon.svg'
+import seatYellowIcon from './seatYellowIcon.svg'
+
 import signUp from './signUp.jpg'
 import login from './login.jpg'
-import searchIcon from './searchIcon.svg'
+import seatMap from './seatMap.png'
 
 export default {
+    NowShowingMovie,
     NowShowingMovie1,
     NowShowingMovie2,
     NowShowingMovie3,
@@ -46,11 +59,18 @@ export default {
     bookingIcon,
     trailerIcon,
     timeIcon,
+    timeBlackIcon,
+    starGrayIcon,
+    starYellowIcon,
+    screenIcon,
+    seatWhiteIcon,
+    seatGrayIcon,
+    seatYellowIcon,
+    seatMap,
     signUp,
     login,
     searchIcon,
     Promotion1,
     Promotion2,
     Promotion3,
-
 };
