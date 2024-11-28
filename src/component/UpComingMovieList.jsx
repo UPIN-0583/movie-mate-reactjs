@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import {UpComingMovieCard} from "./UpComingMovieCard"
+import { useNavigate } from "react-router-dom";
+import { ROUTING_MOVIELIST_UC} from "../router/path";
 
 const UpComingMovieList = ({ movies }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,6 +29,14 @@ const UpComingMovieList = ({ movies }) => {
         setCurrentIndex((prevIndex) =>
             prevIndex < movieGroups.length - 1 ? prevIndex + 1 : 0
         );
+    };
+
+    
+    const navigate = useNavigate(); // Khởi tạo useNavigate
+
+    // Hàm xử lý sự kiện nhấn nút "XEM THÊM"
+    const handleSeeMore = () => {
+        navigate(ROUTING_MOVIELIST_UC); // Chuyển hướng đến đường dẫn MovieListNS từ path.js
     };
 
     return (
@@ -76,7 +86,8 @@ const UpComingMovieList = ({ movies }) => {
 
             {/* Nút Xem thêm */}
             <div className="text-center mt-4">
-                <button className="w-[200px] bg-blue-500 text-black font-bold py-2 px-6 rounded-sm hover:bg-blue-600 transition">
+                <button className="w-[200px] bg-blue-500 text-black font-bold py-2 px-6 rounded-sm hover:bg-blue-600 transition"
+                onClick={handleSeeMore}>
                     XEM THÊM
                 </button>
             </div>

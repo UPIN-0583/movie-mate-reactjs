@@ -16,5 +16,12 @@ export const ROUTING_LINKDIN = "https://www.linkedin.com/in/phan-tuy%E1%BB%81n-4
 
 
 //Chi tiết phim
+export const ROUTING_MOVIEDETAIL_UC = "/moviedetailUC"
+export const ROUTING_MOVIEDETAIL_NS = "/moviedetailNS"
+
 export const ROUTING_WATCHTRAILER_UC = "https://www.youtube.com/watch?v=HFzwmk-8zvI"
-export const ROUTING_WATCHTRAILER_NS = ""
+export const ROUTING_WATCHTRAILER_NS = "https://www.youtube.com/watch?v=c1SpExI3r6k"
+
+//Danh sách phim 
+export const ROUTING_MOVIELIST_UC = "/movielistUC"
+export const ROUTING_MOVIELIST_NS = "/movielistNS" 

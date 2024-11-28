@@ -2,12 +2,13 @@ import React from 'react';
 import images from "../asset";
 import { useNavigate } from "react-router-dom"; 
 import { ROUTING_WATCHTRAILER_UC } from "../router/path";
+import { ROUTING_MOVIEDETAIL_UC } from '../router/path';
 
 const UpComingMovieCard = ({ movie }) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate("/moviedetailUC"); 
+        navigate(ROUTING_MOVIEDETAIL_UC); 
     };
 
     const handleWatchTrailerClick = () => {

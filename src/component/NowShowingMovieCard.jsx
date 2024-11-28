@@ -2,12 +2,13 @@ import React from 'react';
 import images from "../asset";
 import { useNavigate } from "react-router-dom"; 
 import { ROUTING_WATCHTRAILER_NS } from "../router/path";
+import { ROUTING_MOVIEDETAIL_NS } from '../router/path';
 
 const NowShowingMovieCard = ({ movie }) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate("/moviedetailNS"); // Điều hướng tới trang chi tiết phim
+        navigate(ROUTING_MOVIEDETAIL_NS); // Điều hướng tới trang chi tiết phim
     };
 
     const handleWatchTrailerClick = () => {
@@ -15,7 +16,7 @@ const NowShowingMovieCard = ({ movie }) => {
     };
 
     return (
-        <div className="bg-transparent border border-gray-500 text-white rounded-lg w-64 shadow-lg">
+        <div className="bg-transparent border border-gray-500 text-white rounded-lg w-64 shadow-lg m-0">
             <div className="relative">
                 {/* Poster phim */}
                 <div className="relative w-55 h-80 rounded-lg overflow-hidden">
