@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NowShowingMovieCard } from "../component/NowShowingMovieCard";
+import { NowShowingMovieCard } from "../components/NowShowingMovieCard";
 import { useMovies } from "../context/MovieContext";
 
 const MovieListNS = () => {

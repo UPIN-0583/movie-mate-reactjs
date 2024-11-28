@@ -1,8 +1,8 @@
-import { Banner } from "../component/Banner";
-import { Navigate } from "../component/Navigate";
-import { NowShowingMovieList } from "../component/NowShowingMovieList";
-import { UpComingMovieList } from "../component/UpComingMovieList";
-import { PromotionList } from "../component/PromotionList";
+import { Banner } from "../components/Banner";
+import { Navigate } from "../components/Navigate";
+import { NowShowingMovieList } from "../components/NowShowingMovieList";
+import { UpComingMovieList } from "../components/UpComingMovieList";
+import { PromotionList } from "../components/PromotionList";
 import { useMovies } from "../context/MovieContext";
 
 const HomePage = () => {

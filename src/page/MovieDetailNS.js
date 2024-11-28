@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { SeatMap } from "../component/SeatMap";
-import { ComboSelection } from "../component/ComboSelection";
-import { Invoice } from "../component/Invoice";
+import { SeatMap } from "../components/SeatMap";
+import { ComboSelection } from "../components/ComboSelection";
+import { Invoice } from "../components/Invoice";
 import { ROUTING_WATCHTRAILER_NS } from "../router";
 import images from "../asset";
 

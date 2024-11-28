@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UpComingMovieCard } from "../component/UpComingMovieCard";
+import { UpComingMovieCard } from "../components/UpComingMovieCard";
 import { useMovies } from "../context/MovieContext";
 
 const MovieListUC = () => {
