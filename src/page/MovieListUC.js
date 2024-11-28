@@ -16,15 +16,15 @@ const MovieListUC = () => {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen flex flex-col">
-      <div className="container mx-auto px-8 py-4 flex-1">
+    <div className="bg-[#151515] min-h-screen flex flex-col">
+      <div className="container w-[90%] mx-auto px-8 py-4 flex-1">
         {/* Title section */}
         <div className="flex justify-center items-center mt-4 mb-10 p-4 bg-blue-950 rounded-lg">
           <h2 className="text-white text-2xl font-bold">DANH SÁCH PHIM SẮP CHIẾU</h2>
         </div>
 
         {/* Movie List */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1 gap-y-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1 gap-y-8 mb-8 justify-items-center">
           {upcomingMovies.slice(0, visibleMovies).map((movie, index) => (
             <UpComingMovieCard key={index} movie={movie} />
           ))}

@@ -15,7 +15,7 @@ import NowShowingMovie12 from './NowShowingMovie12.jpg';
 import NowShowingMovie13 from './NowShowingMovie13.png';
 import NowShowingMovie14 from './NowShowingMovie14.jpg';
 import NowShowingMovie15 from './NowShowingMovie15.jpg';
-import NowShowingMovie16 from './NowShowingMovie16.jpg';
+import UpComingMovie from './UpComingMovie.jpg';
 
 import Promotion1 from './Promotion1.png'
 import Promotion2 from './Promotion2.png'
@@ -54,7 +54,7 @@ export default {
     NowShowingMovie13,
     NowShowingMovie14,
     NowShowingMovie15,
-    NowShowingMovie16,
+    UpComingMovie,
     logo,
     bookingIcon,
     trailerIcon,

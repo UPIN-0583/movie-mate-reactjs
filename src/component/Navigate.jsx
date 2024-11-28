@@ -37,6 +37,9 @@ const Navigate = () => {
           onChange={(e) => setSelectedCinema(e.target.value)}
           className="bg-[#27282D] w-full border-4 border-white text-yellow-400 font-bold text-lg p-2 rounded-lg text-center"
         >
+          <option value="" disabled hidden>
+            1. Chọn rạp
+          </option>
           {cinemas.map((cinema, index) => (
             <option key={index} value={cinema}>
               {cinema}
@@ -52,6 +55,9 @@ const Navigate = () => {
           onChange={(e) => setSelectedMovie(e.target.value)}
           className="bg-[#27282D] w-full border-4 border-white text-yellow-400 font-bold text-lg p-2 rounded-lg text-center"
         >
+          <option value="" disabled hidden>
+            2. Chọn phim
+          </option>
           {movies.map((movie, index) => (
             <option key={index} value={movie}>
               {movie}
@@ -67,6 +73,9 @@ const Navigate = () => {
           onChange={(e) => setSelectedDay(e.target.value)}
           className="bg-[#27282D] w-full border-4 border-white text-yellow-400 font-bold text-lg p-2 rounded-lg text-center"
         >
+          <option value="" disabled hidden>
+            3. Chọn ngày
+          </option>
           {days.map((day, index) => (
             <option key={index} value={day}>
               {day}
@@ -82,6 +91,9 @@ const Navigate = () => {
           onChange={(e) => setSelectedShow(e.target.value)}
           className="bg-[#27282D] w-full border-4 border-white text-yellow-400 font-bold text-lg p-2 rounded-lg text-center"
         >
+          <option value="" disabled hidden>
+            4. Chọn suất
+          </option>
           {shows.map((show, index) => (
             <option key={index} value={show}>
               {show}

@@ -16,7 +16,7 @@ const NowShowingMovieCard = ({ movie }) => {
   };
 
   return (
-    <div className="bg-transparent border border-gray-500 text-white rounded-lg w-64 shadow-lg mx-4">
+    <div className="bg-transparent border border-gray-500 text-white rounded-lg w-64 shadow-lg">
       <div className="relative">
         {/* Poster phim */}
         <div className="relative w-55 h-80 rounded-lg overflow-hidden">
