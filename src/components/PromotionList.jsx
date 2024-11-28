@@ -38,7 +38,7 @@ const PromotionList = ({ promotions }) => {
         {/* Nút mũi tên trái */}
         <button
           onClick={handlePrev}
-          className="left-1 text-white rounded-lg text-4xl font-bold hover:bg-gray-700 transition"
+          className="left-1 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
         >
           {"<"}
         </button>
@@ -68,8 +68,8 @@ const PromotionList = ({ promotions }) => {
 
         {/* Nút mũi tên phải */}
         <button
-          onClick={handleNext}
-          className="right-1 text-white p-2 rounded-lg font-bold text-4xl hover:bg-gray-700 transition"
+          onClick={handlePrev}
+          className="right-1 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
         >
           {">"}
         </button>

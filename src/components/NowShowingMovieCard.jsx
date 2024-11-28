@@ -23,7 +23,7 @@ const NowShowingMovieCard = ({ movie }) => {
           <img
             src={movie.poster}
             alt="Movie Poster"
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover rounded-lg "
           />
         </div>
 

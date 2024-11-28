@@ -15,7 +15,24 @@ import NowShowingMovie12 from './NowShowingMovie12.jpg';
 import NowShowingMovie13 from './NowShowingMovie13.png';
 import NowShowingMovie14 from './NowShowingMovie14.jpg';
 import NowShowingMovie15 from './NowShowingMovie15.jpg';
+
 import UpComingMovie from './UpComingMovie.jpg';
+import UpComingMovie1 from './UpComingMovie1.jpg';
+import UpComingMovie2 from './UpComingMovie2.jpg';
+import UpComingMovie3 from './UpComingMovie3.jpg';
+import UpComingMovie4 from './UpComingMovie4.jpg';
+import UpComingMovie5 from './UpComingMovie5.jpg';
+import UpComingMovie6 from './UpComingMovie6.jpg';
+import UpComingMovie7 from './UpComingMovie7.jpg';
+import UpComingMovie8 from './UpComingMovie8.jpg';
+import UpComingMovie9 from './UpComingMovie9.jpg';
+import UpComingMovie10 from './UpComingMovie10.jpg';
+import UpComingMovie11 from './UpComingMovie11.jpg';
+import UpComingMovie12 from './UpComingMovie12.jpg';
+import UpComingMovie13 from './UpComingMovie13.jpg';
+import UpComingMovie14 from './UpComingMovie14.jpg';
+import UpComingMovie15 from './UpComingMovie15.jpg';
+
 
 import Promotion1 from './Promotion1.png'
 import Promotion2 from './Promotion2.png'
@@ -55,6 +72,21 @@ export default {
     NowShowingMovie14,
     NowShowingMovie15,
     UpComingMovie,
+    UpComingMovie1,
+    UpComingMovie2,
+    UpComingMovie3,
+    UpComingMovie4,
+    UpComingMovie5,
+    UpComingMovie6,
+    UpComingMovie7,
+    UpComingMovie8,
+    UpComingMovie9,
+    UpComingMovie10,
+    UpComingMovie11,
+    UpComingMovie12,
+    UpComingMovie13,
+    UpComingMovie14,
+    UpComingMovie15,
     logo,
     bookingIcon,
     trailerIcon,
