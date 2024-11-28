@@ -2,7 +2,6 @@ import React from 'react';
 import { ROUTING_LOGIN } from "../router";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useCreateUser } from "../api/user/useCreateUser";
 
 const SignUpPage = () => {
     const {
@@ -17,22 +16,7 @@ const SignUpPage = () => {
         }
     });
 
-    const { mutate: createUser } = useCreateUser();
 
-    const onSubmit = (data) => {
-        createUser({
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            gender: data.gender,
-            birthday: data.birthday,
-            password: data.password
-        }).then(data => {
-            //
-        }).catch(err => {
-            console.log("erorr sign-up: ", err)
-        })
-    };
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-[#151515] relative">
@@ -45,7 +29,7 @@ const SignUpPage = () => {
             <div className="bg-[#151515] relative z-10 bg-opacity-75 backdrop-blur-sm border border-gray-700 p-8 rounded-lg shadow-lg max-w-md w-full mx-4">
                 <h2 className="text-2xl font-bold text-center text-white mb-6">Đăng ký</h2>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form className="space-y-4">
                     {/* Họ và tên */}
                     <input
                         {...register("name", { required: "Vui lòng nhập họ và tên" })}
