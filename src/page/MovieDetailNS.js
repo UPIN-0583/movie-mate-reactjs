@@ -32,7 +32,7 @@ const MovieDetailNS = () => {
           </div>
 
           {/* Thông Tin Phim */}
-          <div className="flex-1 md:flex md:justify-between md:items-start">
+          <div className="flex-1 md:flex md:justify-between md:items-start mt-10">
             <div className="md:w-2/3 text-left">
               <h1 className="text-4xl font-bold mb-4">Domino: Lối Thoát Cuối Cùng </h1>
               <div className="flex items-center gap-2 mb-4">
@@ -107,7 +107,10 @@ const MovieDetailNS = () => {
         </div>
 
         {/* Sơ Đồ Ghế và Combo */}
-        <SeatMap onSeatSelect={handleSeatSelection} />
+        <div className="mt-10 w-11/12 m-auto ">
+          <SeatMap onSeatSelect={handleSeatSelection} />
+        </div>
+        
 
         <div className="grid grid-cols-3 gap-6 mt-20">
           <div className="col-span-2">
