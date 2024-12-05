@@ -25,3 +25,6 @@ export const ROUTING_WATCHTRAILER_NS = "https://www.youtube.com/watch?v=c1SpExI3
 //Danh sách phim 
 export const ROUTING_MOVIELIST_UC = "/movielistUC"
 export const ROUTING_MOVIELIST_NS = "/movielistNS" 
+
+// Chi tiết rạp
+export const ROUTING_THEATER_DETAIL = "/TheaterDetail"

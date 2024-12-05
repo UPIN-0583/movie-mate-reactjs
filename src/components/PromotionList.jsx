@@ -4,7 +4,7 @@ import { PromotionCard } from "./PromotionCard";
 const PromotionList = ({ promotions }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Chia các promotion thành từng nhóm (3 promotion mỗi slide)
+  // Chia các promotion thành từng nhóm (4 promotion mỗi slide)
   const groupPromotions = (promotions, groupSize) => {
     const result = [];
     for (let i = 0; i < promotions.length; i += groupSize) {
@@ -13,7 +13,7 @@ const PromotionList = ({ promotions }) => {
     return result;
   };
 
-  const promotionGroups = groupPromotions(promotions, 4); // Mỗi slide chứa tối đa 3 promotion
+  const promotionGroups = groupPromotions(promotions, 4); // Mỗi slide chứa tối đa 4 promotion
 
   // Xử lý khi bấm nút "trái"
   const handlePrev = () => {

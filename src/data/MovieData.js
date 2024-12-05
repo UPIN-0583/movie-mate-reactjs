@@ -58,6 +58,8 @@ const moviePromotions = [
     }
 ];
 
+
+
 // Export tất cả các danh mục phim
 const moviesData = {
     nowShowing: nowShowingMovies,

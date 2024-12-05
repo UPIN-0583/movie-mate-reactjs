@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ROUTING_HOME, ROUTING_LOGIN } from "../router/path";
+import { ROUTING_HOME, ROUTING_LOGIN, ROUTING_THEATER_DETAIL} from "../router/path";
 import images from "../asset";
 
 const Header = () => {
@@ -23,9 +23,9 @@ const Header = () => {
         <a href="#" className="hover:text-yellow-500">
           Khuyến mãi
         </a>
-        <a href="#" className="hover:text-yellow-500">
+        <Link to={ROUTING_THEATER_DETAIL} className="hover:text-yellow-500">
           Rạp chiếu phim
-        </a>
+        </Link>
         <a href="#" className="hover:text-yellow-500">
           Review phim
         </a>

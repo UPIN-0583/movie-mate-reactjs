@@ -33,6 +33,11 @@ import UpComingMovie13 from './UpComingMovie13.jpg';
 import UpComingMovie14 from './UpComingMovie14.jpg';
 import UpComingMovie15 from './UpComingMovie15.jpg';
 
+import Theater from './Theater.jpg'
+import Theater1 from './Theater1.jpg'
+import Theater2 from './Theater2.jpg'
+
+import TicketPrice from './TicketPrice.png'
 
 import Promotion1 from './Promotion1.png'
 import Promotion2 from './Promotion2.png'
@@ -53,6 +58,7 @@ import seatYellowIcon from './seatYellowIcon.svg'
 import signUp from './signUp.jpg'
 import login from './login.jpg'
 import seatMap from './seatMap.png'
+
 
 export default {
     NowShowingMovie,
@@ -87,6 +93,9 @@ export default {
     UpComingMovie13,
     UpComingMovie14,
     UpComingMovie15,
+    Theater,
+    Theater1,
+    Theater2,
     logo,
     bookingIcon,
     trailerIcon,
@@ -105,4 +114,5 @@ export default {
     Promotion1,
     Promotion2,
     Promotion3,
+    TicketPrice,
 };

@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ROUTING_HOME, ROUTING_LOGIN, ROUTING_MOVIEDETAIL_NS, ROUTING_MOVIEDETAIL_UC, ROUTING_MOVIELIST_NS, ROUTING_MOVIELIST_UC, ROUTING_SIGNUP } from "./path";
+import { ROUTING_HOME, ROUTING_LOGIN, ROUTING_MOVIEDETAIL_NS, ROUTING_MOVIEDETAIL_UC, ROUTING_MOVIELIST_NS, ROUTING_MOVIELIST_UC, ROUTING_SIGNUP, ROUTING_THEATER_DETAIL } from "./path";
 import { HomePage } from "../page/Home.js";
 import { Layout } from "../page/layout.js";
 import { SignUpPage } from "../page/SignUp.js";
@@ -8,6 +8,7 @@ import { MovieDetailUC } from "../page/MovieDetailUC.js";
 import { MovieDetailNS } from '../page/MovieDetailNS.js'; 
 import { MovieListNS } from "../page/MovieListNS.js";
 import { MovieListUC } from "../page/MovieListUC.js";
+import { TheaterDetail } from "../page/TheaterDetail.js";
 
 
 const WebRouter = () => {
@@ -21,6 +22,7 @@ const WebRouter = () => {
 
                     {/*Trang chủ*/}
                     <Route path={ROUTING_HOME} element={<HomePage />} />
+                    <Route path={ROUTING_THEATER_DETAIL} element = {<TheaterDetail />} />
 
 
                     {/*Header*/}
