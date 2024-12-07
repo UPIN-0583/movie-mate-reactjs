@@ -1,26 +1,33 @@
 import React, { useState } from "react";
 import images from "../asset";
 
-const SeatMap = () => {
+const SeatMap = ({ onSeatSelect }) => {
   const [selectedSeats, setSelectedSeats] = useState([]);
 
+  // Tạo danh sách ghế
+  const rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+  const seats = rows.flatMap((rowLabel) =>
+    Array.from({ length: 15 }, (_, index) => ({
+      id: `${rowLabel}${index + 1}`, // Tạo tên ghế như A1, A2, ..., J15
+      row: rowLabel,
+      number: index + 1,
+      status: selectedSeats.includes(`${rowLabel}${index + 1}`) ? "selected" : "available",
+    }))
+  );
+
   const handleSeatClick = (seat) => {
-    if (selectedSeats.includes(seat)) {
+    if (selectedSeats.includes(seat.id)) {
       // Hủy chọn ghế
-      setSelectedSeats(selectedSeats.filter((s) => s !== seat));
+      const updatedSeats = selectedSeats.filter((s) => s !== seat.id);
+      setSelectedSeats(updatedSeats);
+      onSeatSelect(updatedSeats); // Truyền danh sách ghế đã chọn về MovieDetailNS
     } else {
       // Chọn ghế
-      setSelectedSeats([...selectedSeats, seat]);
+      const updatedSeats = [...selectedSeats, seat.id];
+      setSelectedSeats(updatedSeats);
+      onSeatSelect(updatedSeats); // Truyền danh sách ghế đã chọn về MovieDetailNS
     }
   };
-
-  const seats = Array.from({ length: 150 }, (_, index) => ({
-    id: `G${index + 1}`,
-    status: selectedSeats.includes(`G${index + 1}`) ? "selected" : "available",
-  }));
-
-
-
 
   return (
     <div className="bg-[#27282D] rounded-xl p-6">
@@ -32,130 +39,128 @@ const SeatMap = () => {
 
         <div className="grid grid-cols-17 gap-2 justify-center mt-12 ms-20 me-20 pb-5">
           {/* Các hàng chữ cái A-J */}
-          {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"].map(
-            (rowLabel, rowIndex) => (
-              <div key={rowLabel} className="flex items-center">
-                
-                {/* 3 cột ghế đầu */}
-                {seats
-                  .filter(
-                    (_, index) =>
-                      Math.floor(index / 15) === rowIndex && index % 15 < 3
-                  )
-                  .map((seat, index) => (
-                    <div
-                      key={seat.id}
-                      className="w-12 h-12 flex items-center justify-center rounded cursor-pointer mx-2 my-2"
-                      onClick={() => handleSeatClick(seat.id)}
-                    >
-                      {seat.status === "available" ? (
-                        <img
-                          src={images.seatWhiteIcon}
-                          alt="available seat"
-                          className="w-full h-full"
-                        />
-                      ) : seat.status === "selected" ? (
-                        <img
-                          src={images.seatYellowIcon}
-                          alt="selected seat"
-                          className="w-full h-full"
-                        />
-                      ) : (
-                        <img
-                          src={images.seatGrayIcon}
-                          alt="unavailable seat"
-                          className="w-full h-full"
-                        />
-                      )}
-                    </div>
-                  ))}
+          {rows.map((rowLabel, rowIndex) => (
+            <div key={rowLabel} className="flex items-center">
+              {/* 3 cột ghế đầu */}
+              {seats
+                .filter(
+                  (seat) =>
+                    seat.row === rowLabel &&
+                    seat.number >= 1 &&
+                    seat.number <= 3
+                )
+                .map((seat) => (
+                  <div
+                    key={seat.id}
+                    className="w-12 h-12 flex items-center justify-center rounded cursor-pointer mx-2 my-2"
+                    onClick={() => handleSeatClick(seat)}
+                  >
+                    {seat.status === "available" ? (
+                      <img
+                        src={images.seatWhiteIcon}
+                        alt="available seat"
+                        className="w-full h-full"
+                      />
+                    ) : seat.status === "selected" ? (
+                      <img
+                        src={images.seatYellowIcon}
+                        alt="selected seat"
+                        className="w-full h-full"
+                      />
+                    ) : (
+                      <img
+                        src={images.seatGrayIcon}
+                        alt="unavailable seat"
+                        className="w-full h-full"
+                      />
+                    )}
+                  </div>
+                ))}
 
-                {/* 1 cột chữ cái cho hàng ghế */}
-                <div className="flex w-8 justify-center items-center text-lg font-semibold">
-                  {rowLabel}
-                </div>
-
-                {/* 9 cột ghế giữa */}
-                {seats
-                  .filter(
-                    (_, index) =>
-                      Math.floor(index / 15) === rowIndex &&
-                      index % 15 >= 3 &&
-                      index % 15 < 12
-                  )
-                  .map((seat, index) => (
-                    <div
-                      key={seat.id}
-                      className="w-12 h-12 flex items-center justify-center rounded cursor-pointer mx-2 my-2"
-                      onClick={() => handleSeatClick(seat.id)}
-                    >
-                      {seat.status === "available" ? (
-                        <img
-                          src={images.seatWhiteIcon}
-                          alt="available seat"
-                          className="w-full h-full"
-                        />
-                      ) : seat.status === "selected" ? (
-                        <img
-                          src={images.seatYellowIcon}
-                          alt="selected seat"
-                          className="w-full h-full"
-                        />
-                      ) : (
-                        <img
-                          src={images.seatGrayIcon}
-                          alt="unavailable seat"
-                          className="w-full h-full"
-                        />
-                      )}
-                    </div>
-                  ))}
-
-                {/* 1 cột chữ cái cho hàng ghế */}
-                <div className="flex w-8 justify-center items-center text-lg font-semibold">
-                  {rowLabel}
-                </div>
-
-                {/* 3 cột ghế cuối */}
-                {seats
-                  .filter(
-                    (_, index) =>
-                      Math.floor(index / 15) === rowIndex && index % 15 >= 12
-                  )
-                  .map((seat, index) => (
-                    <div
-                      key={seat.id}
-                      className="w-12 h-12 flex items-center justify-center rounded cursor-pointer mx-2 my-2"
-                      onClick={() => handleSeatClick(seat.id)}
-                    >
-                      {seat.status === "available" ? (
-                        <img
-                          src={images.seatWhiteIcon}
-                          alt="available seat"
-                          className="w-full h-full"
-                        />
-                      ) : seat.status === "selected" ? (
-                        <img
-                          src={images.seatYellowIcon}
-                          alt="selected seat"
-                          className="w-full h-full"
-                        />
-                      ) : (
-                        <img
-                          src={images.seatGrayIcon}
-                          alt="unavailable seat"
-                          className="w-full h-full"
-                        />
-                      )}
-                    </div>
-                  ))}
+              {/* 1 cột chữ cái cho hàng ghế */}
+              <div className="flex w-8 justify-center items-center text-lg font-semibold">
+                {rowLabel}
               </div>
-            )
-          )}
 
+              {/* 9 cột ghế giữa */}
+              {seats
+                .filter(
+                  (seat) =>
+                    seat.row === rowLabel &&
+                    seat.number >= 4 &&
+                    seat.number <= 12
+                )
+                .map((seat) => (
+                  <div
+                    key={seat.id}
+                    className="w-12 h-12 flex items-center justify-center rounded cursor-pointer mx-2 my-2"
+                    onClick={() => handleSeatClick(seat)}
+                  >
+                    {seat.status === "available" ? (
+                      <img
+                        src={images.seatWhiteIcon}
+                        alt="available seat"
+                        className="w-full h-full"
+                      />
+                    ) : seat.status === "selected" ? (
+                      <img
+                        src={images.seatYellowIcon}
+                        alt="selected seat"
+                        className="w-full h-full"
+                      />
+                    ) : (
+                      <img
+                        src={images.seatGrayIcon}
+                        alt="unavailable seat"
+                        className="w-full h-full"
+                      />
+                    )}
+                  </div>
+                ))}
 
-          <div className="flex  items-center mt-2">
-            {Array.from({ length:3 }, (_, i) => {
+              {/* 1 cột chữ cái cho hàng ghế */}
+              <div className="flex w-8 justify-center items-center text-lg font-semibold">
+                {rowLabel}
+              </div>
+
+              {/* 3 cột ghế cuối */}
+              {seats
+                .filter(
+                  (seat) =>
+                    seat.row === rowLabel && seat.number >= 13 && seat.number <= 15
+                )
+                .map((seat) => (
+                  <div
+                    key={seat.id}
+                    className="w-12 h-12 flex items-center justify-center rounded cursor-pointer mx-2 my-2"
+                    onClick={() => handleSeatClick(seat)}
+                  >
+                    {seat.status === "available" ? (
+                      <img
+                        src={images.seatWhiteIcon}
+                        alt="available seat"
+                        className="w-full h-full"
+                      />
+                    ) : seat.status === "selected" ? (
+                      <img
+                        src={images.seatYellowIcon}
+                        alt="selected seat"
+                        className="w-full h-full"
+                      />
+                    ) : (
+                      <img
+                        src={images.seatGrayIcon}
+                        alt="unavailable seat"
+                        className="w-full h-full"
+                      />
+                    )}
+                  </div>
+                ))}
+            </div>
+          ))}
+
+          <div className="flex items-center mt-2">
+            {Array.from({ length: 3 }, (_, i) => {
               return (
                 <div
                   key={i}
@@ -164,11 +169,9 @@ const SeatMap = () => {
                   {i + 1}
                 </div>
               );
-            })}       
-            <div className="w-8">
-              {/* Hiển thị ô trống */}
-            </div>
-            {Array.from({ length:9 }, (_, i) => {
+            })}
+            <div className="w-8">{/* Hiển thị ô trống */}</div>
+            {Array.from({ length: 9 }, (_, i) => {
               return (
                 <div
                   key={i}
@@ -177,11 +180,9 @@ const SeatMap = () => {
                   {i + 4}
                 </div>
               );
-            })} 
-            <div className="w-8">
-              {/* Hiển thị ô trống */}
-            </div>
-            {Array.from({ length:3 }, (_, i) => {
+            })}
+            <div className="w-8">{/* Hiển thị ô trống */}</div>
+            {Array.from({ length: 3 }, (_, i) => {
               return (
                 <div
                   key={i}
