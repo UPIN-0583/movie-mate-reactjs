@@ -39,9 +39,14 @@ import Theater2 from './Theater2.jpg'
 
 import TicketPrice from './TicketPrice.png'
 
-import Promotion1 from './Promotion1.png'
-import Promotion2 from './Promotion2.png'
-import Promotion3 from './Promotion3.png'
+import Promotion from './Promotion.webp'
+import Promotion1 from './Promotion1.webp'
+import Promotion2 from './Promotion2.webp'
+import Promotion3 from './Promotion3.webp'
+import Promotion4 from './Promotion4.webp'
+import Promotion5 from './Promotion5.webp'
+import Promotion6 from './Promotion6.webp'
+import Promotion7 from './Promotion7.webp'
 
 import bookingIcon from './bookingIcon.svg';
 import trailerIcon from './trailerIcon.svg';
@@ -111,8 +116,13 @@ export default {
     signUp,
     login,
     searchIcon,
+    Promotion,
     Promotion1,
     Promotion2,
     Promotion3,
+    Promotion4,
+    Promotion5,
+    Promotion6,
+    Promotion7,
     TicketPrice,
 };
