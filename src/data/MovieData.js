@@ -39,22 +39,55 @@ const upcomingMovies = [
     { title: "Chuyến Xe Từ Địa Ngục", poster: images.UpComingMovie15, rating: "⭐⭐⭐⭐⭐" },
 ];
 
+// Dữ liệu các khuyến mãi
 const moviePromotions = [
     {
+        image: images.Promotion,
+        title: "MATE'SUNSHINE - SUNNY DAY DISCOUNT",
+        description: "Đồng giá 45K/ 2D và 55K/ 3D cho tất cả khách hàng vào những ngày trời nắng (áp dụng theo dự báo thời tiết), tạo cơ hội cho bạn thư giãn và tận hưởng bộ phim yêu thích trong một không gian ấm áp.",
+        date: "Chủ nhật các tuần trừ ngày lễ"
+    },
+    {
         image: images.Promotion1,
-        title: "Promotion 1",
+        title: "MATE'FAMILY - FAMILY DAY",
+        description: "Áp dụng đồng giá 45K/ 2D và 55K/ 3D cho khách hàng đi cùng gia đình vào mỗi Chủ nhật hàng tuần. Một cơ hội tuyệt vời để tận hưởng bộ phim yêu thích bên những người thân yêu.",
+        date: "Chủ nhật các tuần trừ ngày lễ"
     },
     {
         image: images.Promotion2,
-        title: "Promotion 2",
+        title: "MATE'WEEKEND - THE WEEKEND VIBES",
+        description: "Đồng giá 45K/ 2D và 55K/ 3D vào các ngày cuối tuần (Thứ 7 và Chủ nhật), giúp bạn tận hưởng những bộ phim hấp dẫn với mức giá phải chăng, xả stress cuối tuần.",
+        date: "Thứ 7 và Chủ nhật các tuần trừ ngày lễ"
     },
     {
         image: images.Promotion3,
-        title: "Promotion 3",
+        title: "MATE'FRIDAY - END WEEK PARTY",
+        description: "Áp dụng giá 45K/ 2D và 55K/ 3D cho tất cả khách hàng vào mỗi thứ 6 hàng tuần, mang đến không gian thư giãn tuyệt vời để bắt đầu cuối tuần.",
+        date: "Thứ 7 và Chủ nhật các tuần trừ ngày lễ"
     },
     {
-        image: images.Promotion3,
-        title: "Promotion 3",
+        image: images.Promotion4,
+        title: "MATE'MEMBER - HAPPY MEMBER’S DAY",
+        description: "Áp dụng giá 45K/ 2D và 55K/ 3D cho khách hàng là thành viên MovieMate vào ngày thứ 4 hàng tuần",
+        date: "Thứ 4 các tuần trừ ngày lễ"
+    },
+    {
+        image: images.Promotion5,
+        title: "MATE'MONDAY - HAPPY DAY",
+        description: "Đồng giá 45K/2D, 55K/3D vào thứ 2 hàng tuần",
+        date: "Thứ 2 các tuần trừ ngày lễ"
+    },
+    {
+        image: images.Promotion6,
+        title: "MATE'NINE - HAPPY HOUR",
+        description: "Áp dụng giá 45K/ 2D và 55K/ 3D cho khách hàng xem phim trước 9h sáng và sau 9h tối.",
+        date: "Các ngày trong tuần trừ ngày lễ"
+    },
+    {
+        image: images.Promotion7,
+        title: "MATE’STUDENT",
+        description: "Đồng giá 45K/2D cho HSSV/GV/U22 cả tuần tại mọi cụm rạp MOVIEMATER.",
+        date: "Các ngày trong tuần trừ ngày lễ"
     }
 ];
 

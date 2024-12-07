@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { PromotionCard } from "./PromotionCard";
+import { useNavigate } from "react-router-dom";
+import { ROUTING_PROMOTIONLIST } from "../router/path";
 
 const PromotionList = ({ promotions }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,6 +31,12 @@ const PromotionList = ({ promotions }) => {
     );
   };
 
+  const navigate = useNavigate(); // Khởi tạo useNavigate
+
+  // Hàm xử lý sự kiện nhấn nút "XEM THÊM"
+  const handleSeeMore = () => {
+    navigate(ROUTING_PROMOTIONLIST); // Chuyển hướng đến đường dẫn MovieListNS từ path.js
+  };
   return (
     <div className="bg-transparent py-8">
       <div className="text-center font-bold text-white text-2xl mb-6">
@@ -77,7 +85,10 @@ const PromotionList = ({ promotions }) => {
 
       {/* Nút Xem thêm */}
       <div className="text-center mt-8">
-        <button className="w-[200px] bg-[#9CB2F5] text-black font-bold py-2 px-6 rounded-sm hover:bg-blue-600 transition">
+        <button
+          className="w-[200px] bg-[#9CB2F5] text-black font-bold py-2 px-6 rounded-sm hover:bg-blue-600 transition"
+          onClick={handleSeeMore}
+        >
           XEM THÊM
         </button>
       </div>
