@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SeatMap } from "../components/SeatMap";
 import { ComboSelection } from "../components/ComboSelection";
 import { Invoice } from "../components/Invoice";
+import { MovieSchedule } from "../components/MovieSchedule";
 import { ROUTING_WATCHTRAILER_NS } from "../router";
 import images from "../asset";
 
@@ -19,11 +20,11 @@ const MovieDetailNS = () => {
 
   return (
     <div className="bg-[#151515] text-white min-h-screen">
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-4 py-10 ">
         {/* Poster và Thông Tin Phim */}
-        <div className="flex flex-col md:flex-row items-start gap-8">
+        <div className="flex flex-col md:flex-row items-start gap-8 w-11/12 m-auto">
           {/* Poster Phim */}
-          <div className="w-full md:w-1/3 lg:w-1/4 ms-8">
+          <div className="w-1/4 ms-8">
             <img
               src={images.NowShowingMovie}
               alt="Movie Poster"
@@ -106,13 +107,17 @@ const MovieDetailNS = () => {
           </div>
         </div>
 
-        {/* Sơ Đồ Ghế và Combo */}
+      <div className="mt-10 w-11/12 m-auto">
+                <MovieSchedule/>
+      </div>
+
+        {/* Sơ Đồ Ghế */}
         <div className="mt-10 w-11/12 m-auto ">
           <SeatMap onSeatSelect={handleSeatSelection} />
         </div>
         
-
-        <div className="grid grid-cols-3 gap-6 mt-20">
+        {/* Combo và hoá đơn */}
+        <div className="mt-10 w-11/12 m-auto grid grid-cols-3 gap-6">
           <div className="col-span-2">
             <ComboSelection onComboSelect={handleComboSelection} />
           </div>

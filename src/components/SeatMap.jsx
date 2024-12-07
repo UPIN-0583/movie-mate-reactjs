@@ -23,7 +23,7 @@ const SeatMap = () => {
 
 
   return (
-    <div className="bg-gray-800 rounded-lg p-6">
+    <div className="bg-[#27282D] rounded-xl p-6">
       <div className="bg-seatMap">
         <div className="w-full h-full mt-8 justify-items-center">
           <img src={images.screenIcon} alt="screen icon" />

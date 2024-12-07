@@ -19,14 +19,14 @@ const SignUpPage = () => {
 
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-[#151515] relative">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-[#151515] relative ">
             {/* Tấm ảnh nền */}
             <div
-                className="bg-signUp absolute inset-0 z-0 bg-contain bg-center rounded-lg w-[600px] border border-white m-auto"
+                className="bg-signUp absolute inset-0 z-0 bg-contain bg-center rounded-lg w-[600px] border border-white m-auto my-10"
             ></div>
 
             {/* Form đăng ký */}
-            <div className="bg-[#151515] relative z-10 bg-opacity-75 backdrop-blur-sm border border-gray-700 p-8 rounded-lg shadow-lg max-w-md w-full mx-4">
+            <div className="bg-[#151515] relative z-10 bg-opacity-75 backdrop-blur-sm border border-gray-700 p-8 rounded-lg shadow-lg max-w-md w-full mx-4 my-24">
                 <h2 className="text-2xl font-bold text-center text-white mb-6">Đăng ký</h2>
 
                 <form className="space-y-4">
@@ -140,7 +140,7 @@ const SignUpPage = () => {
                             type="checkbox"
                             className="mr-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
                         />
-                        <label className='text-sm'>
+                        <label className='text-sm text-le'>
                             Bằng việc đăng ký tài khoản tôi đồng ý với điều khoản dịch vụ và chính sách bảo mật của MovieMate
                         </label>
                     </div>
