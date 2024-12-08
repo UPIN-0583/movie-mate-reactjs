@@ -59,6 +59,13 @@ import searchIcon from './searchIcon.svg'
 import seatWhiteIcon from './seatWhiteIcon.svg'
 import seatGrayIcon from './seatGrayIcon.svg'
 import seatYellowIcon from './seatYellowIcon.svg'
+import calendarIcon from './calendarIcon.svg'
+import clockIcon from './clockIcon.svg'
+import genreIcon from './genreIcon.svg'
+import locationIcon from './locationIcon.svg'
+import moneyIcon from './moneyIcon.svg'
+import seatIcon from './seatIcon.svg'
+import ticketIcon from './ticketIcon.svg'
 import userWhiteIcon from './userWhiteIcon.svg'
 import userYellowIcon from './userYellowIcon.svg'
 
@@ -120,6 +127,13 @@ export default {
     seatWhiteIcon,
     seatGrayIcon,
     seatYellowIcon,
+    calendarIcon,
+    genreIcon,
+    clockIcon,
+    locationIcon,
+    moneyIcon,
+    seatIcon,
+    ticketIcon,
     userWhiteIcon,
     userYellowIcon,
     seatMap,
