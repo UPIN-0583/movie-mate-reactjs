@@ -33,3 +33,6 @@ export const ROUTING_THEATER_DETAIL = "/TheaterDetail"
 
 // Danh sách khuyến mãi
 export const ROUTING_PROMOTIONLIST = "/PromotionList"
+
+//Liên hệ
+export const ROUTING_CONTACT_FROM = "/ContactFrom"

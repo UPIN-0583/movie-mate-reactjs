@@ -29,10 +29,6 @@ const UpComingMovieCard = ({ movie }) => {
             className="w-full h-full object-cover rounded-lg"
           />
         </div>
-        {/* Đánh giá */}
-        <div className="absolute top-2 right-2 bg-black bg-opacity-50 px-2 py-1 rounded-md flex items-center">
-          <span className="text-yellow-400 text-sm mr-1">{movie.rating}</span>
-        </div>
 
         {/* Hiệu ứng Hover*/}
         <div

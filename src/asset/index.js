@@ -66,6 +66,8 @@ import locationIcon from './locationIcon.svg'
 import moneyIcon from './moneyIcon.svg'
 import seatIcon from './seatIcon.svg'
 import ticketIcon from './ticketIcon.svg'
+import userWhiteIcon from './userWhiteIcon.svg'
+import userYellowIcon from './userYellowIcon.svg'
 
 import signUp from './signUp.jpg'
 import login from './login.jpg'
@@ -126,6 +128,8 @@ export default {
     moneyIcon,
     seatIcon,
     ticketIcon,
+    userWhiteIcon,
+    userYellowIcon,
     seatMap,
     signUp,
     login,
