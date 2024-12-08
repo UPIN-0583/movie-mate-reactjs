@@ -61,11 +61,7 @@ const TheaterDetail = () => {
             />
           </div>
         </section>
-
-        {/* Khuyến mãi*/}
-        <div className="w-full m-auto justify-center text-left mb-8">
-                <PromotionList promotions={promotions} />
-        </div>
+        
       </div>
     </div>
   );

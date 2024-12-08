@@ -15,9 +15,9 @@ const CustomerInfo = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Thông tin khách hàng */}
-          <div className="bg-[#1E1E1E] p-6 rounded-xl shadow">
+          <div className="bg-[#1E1E1E] p-6 rounded-xl shadow ">
             <img
-              src="https://via.placeholder.com/150"
+              src={images.avatar}
               alt="User Avatar"
               className="rounded-full w-32 mx-auto"
             />

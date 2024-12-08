@@ -48,6 +48,11 @@ import Promotion5 from './Promotion5.webp'
 import Promotion6 from './Promotion6.webp'
 import Promotion7 from './Promotion7.webp'
 
+import Poster from './Poster.jpeg'
+import Poster1 from './Poster2.jpg'
+import Poster2 from './Poster3.jpg'
+import Poster3 from './Poster4.jpg'
+
 import bookingIcon from './bookingIcon.svg';
 import trailerIcon from './trailerIcon.svg';
 import timeIcon from './timeIcon.svg';
@@ -72,6 +77,8 @@ import userYellowIcon from './userYellowIcon.svg'
 import signUp from './signUp.jpg'
 import login from './login.jpg'
 import seatMap from './seatMap.png'
+
+import avatar from './avatar.png'
 
 import qrCode from './qrcode.svg'
 
@@ -149,7 +156,12 @@ export default {
     Promotion6,
     Promotion7,
     TicketPrice,
+    Poster,
+    Poster1,
+    Poster2,
+    Poster3,
     qrCode,
+    avatar,
     combo,
     combo1,
     combo2,

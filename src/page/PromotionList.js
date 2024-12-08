@@ -15,7 +15,7 @@ const PromotionList = () => {
 
     return (
         <div className="bg-[#151515] min-h-screen flex flex-col">
-            <div className="container mx-auto px-8 py-4 flex-1">
+            <div className="container w-[90%] mx-auto px-8 py-4 flex-1">
                 {/* Tiêu đề trang */}
                 <div className="flex justify-center items-center mt-4 mb-10 p-4 bg-blue-950 rounded-lg">
                     <h2 className="text-white text-2xl font-bold">

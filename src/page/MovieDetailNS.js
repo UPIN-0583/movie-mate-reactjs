@@ -28,7 +28,7 @@
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [selectedCombos, setSelectedCombos] = useState({});
     const [selectedSchedule, setSelectedSchedule] = useState(null);
-    const [selectedCinema, setSelectedCinema] = useState("MovieMate Quốc Thanh");
+    const [selectedCinema, setSelectedCinema] = useState("MovieMate Nguyễn Du");
     const [selectedMovie, setSelectedMovie] = useState("Domino: Lối Thoát Cuối Cùng");
     const [selectedTime, setSelectedTime] = useState("14:00");
     const [selectedDate, setSelectedDate] = useState(formatDate(new Date()));
@@ -96,7 +96,7 @@
                     alt="star no fill" />{/* Sao rỗng */}
                 </div>
 
-                <p className="mb-4 text-lg text-indigo-600 font-bold">
+                <p className="mb-4 text-lg text-blue-500 font-bold">
                   Nội dung chính
                 </p>
                 <p className="mb-4">
@@ -120,15 +120,15 @@
               <div className="mt-8 md:mt-0 w-1/3 text-left p-7 h-auto">
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-indigo-600">Nhà sản xuất</h3>
+                    <h3 className="font-semibold text-blue-500">Nhà sản xuất</h3>
                     <p>Nguyễn Phúc Huy Cương</p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-indigo-600">Đạo diễn</h3>
+                    <h3 className="font-semibold text-blue-500">Đạo diễn</h3>
                     <p>Nguyễn Phúc Huy Cương</p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-indigo-600">Diễn viên</h3>
+                    <h3 className="font-semibold text-blue-500">Diễn viên</h3>
                     <p>Thuận Nguyễn</p>
                     <p>Quốc Cường</p>
                     <p>Henry Nguyễn</p>

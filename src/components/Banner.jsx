@@ -4,43 +4,42 @@ import images from "../asset";
 const movies = [
   {
     id: 1,
-    title: "Doctor Strange",
-    description: "Phù thủy tối thượng trong vũ trụ điên loạn",
+    title: "Thế chiến 1917",
+    description:
+      "1917 dựa trên một câu chuyện có thật của ông nội Mendes, kể về hai chàng lính trẻ người Anh trong đỉnh điểm Thế chiến I được giao nhiệm vụ chuyển một thông điệp đến Tiểu đoàn 2, với nội dung cảnh báo về cuộc phục kích của quân đội Đức nếu họ thực hiện một cuộc tấn công đã lên kế hoạch từ trước.",
     releaseDate: "19 tháng 2, 2022",
-    backgroundImage: "https://i.imgur.com/VhkhULR.jpg",
-    thumbnail: "https://i.imgur.com/VhkhULR.jpg",
+    backgroundImage: images.Poster,
+    thumbnail: images.Poster,
     rating: 5,
   },
   {
     id: 2,
-    title: "The Avengers",
-    description: "Biệt đội siêu anh hùng mạnh nhất Trái Đất",
-    releaseDate: "25 tháng 4, 2012",
-    backgroundImage:
-      "https://youthvietnam.vn/wp-content/uploads/2021/06/mau-poster-phim-viet-nam.jpg",
-    thumbnail:
-      "https://youthvietnam.vn/wp-content/uploads/2021/06/mau-poster-phim-viet-nam.jpg",
+    title: "Kẻ Hành Pháp Zero",
+    description:
+      "Trước Hội nghị Thượng đỉnh tại Edge of Ocean ở Vịnh Tokyo, một vụ nổ xảy ra khiến nhiều nhân viên bị thương và Mori Kogoro bị buộc tội oan. Conan phát hiện thủ phạm là công tố viên Kusakabe Makoto, người âm mưu tấn công Tokyo bằng con nhộng từ tàu Hakuchō.",
+    releaseDate: "13 tháng 4 năm 2018",
+    backgroundImage: images.Poster1,
+    thumbnail: images.Poster1,
     rating: 4,
   },
   {
     id: 3,
-    title: "Thor",
-    description: "Thần Sấm - Chiến binh vũ trụ",
+    title: "Avengers: Hồi kết",
+    description:
+      "Phim khởi đầu sau sự kiện Infinity War năm 2018, Clint Barton (Hawkeye) cùng vợ con đi dã ngoại trong thời gian bị quản thúc. Ngay khi anh rời mắt khỏi gia đình mình một lát, họ tan biến thành tro bụi do là nạn nhân của sự kiện Búng tay.",
     releaseDate: "6 tháng 5, 2011",
-    backgroundImage:
-      "https://file.kenhsinhvien.vn/2018/04/07/conan-movie-22.jpg",
-    thumbnail: "https://file.kenhsinhvien.vn/2018/04/07/conan-movie-22.jpg",
+    backgroundImage: images.Poster2,
+    thumbnail: images.Poster2,
     rating: 4,
   },
   {
     id: 4,
-    title: "Thor",
-    description: "Thần Sấm - Chiến binh vũ trụ",
+    title: "Fast & Furious",
+    description:
+      "Dominic Dom Toretto và nhóm của anh được Tổ chức giao nhiệm vụ đánh cắp một con chip máy tính ở Rome, Ý. Dom và vợ anh, Letty Ortiz, ở nhà cùng cậu con trai Little B trong khi những người còn lại, bao gồm Roman Pearce, Tej Parker, Han Lue và Ramsey, đến Rome.",
     releaseDate: "6 tháng 5, 2011",
-    backgroundImage:
-      "https://iv1.vnecdn.net/ngoisao/images/web/2023/05/18/trailer-phim-fast-x-1684393964.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=5h7NVXy6heBCGkt4XGnDGA",
-    thumbnail:
-      "https://iv1.vnecdn.net/ngoisao/images/web/2023/05/18/trailer-phim-fast-x-1684393964.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=5h7NVXy6heBCGkt4XGnDGA",
+    backgroundImage: images.Poster3,
+    thumbnail: images.Poster3,
     rating: 4,
   },
 ];
@@ -74,7 +73,7 @@ const Banner = () => {
       style={{ backgroundImage: `url(${selectedMovie.backgroundImage})` }}
     >
       {/* Phần bên trái: Chi tiết phim */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-start justify-start pl-12 pr-8 py-10 rounded-lg">
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-start justify-start pl-12 pr-8 py-10 rounded-lg ">
         <div className="text-white max-w-md space-y-4 text-left">
           {/* Xếp hạng sao */}
           <div className="flex items-center space-x-1 text-yellow-400 text-2xl mb-4">
@@ -82,14 +81,9 @@ const Banner = () => {
           </div>
 
           {/* Tiêu đề phim */}
-          <h1 className="text-6xl font-bold leading-tight">
+          <h1 className="text-5xl font-bold leading-tight">
             {selectedMovie.title}
           </h1>
-
-          {/* Mô tả phụ */}
-          <h3 className="text-2xl italic font-light text-gray-300 mt-2">
-            {selectedMovie.description}
-          </h3>
 
           {/* Ngày phát hành */}
           <p className="text-yellow-400 text-lg font-medium mt-4">
@@ -98,11 +92,7 @@ const Banner = () => {
 
           {/* Mô tả chính */}
           <p className="text-gray-300 text-base leading-relaxed mt-4">
-            Trong hành trình khám phá sức mạnh và thế giới tâm linh, bác sĩ phẫu
-            thuật tài năng đã bị cuốn vào thế giới của ma thuật...
-            <a href="#" className="text-blue-400 hover:underline ml-1">
-              Đọc thêm
-            </a>
+            {selectedMovie.description}
           </p>
 
           {/* Các nút hành động */}

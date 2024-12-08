@@ -10,7 +10,7 @@ const Navigate = () => {
   // Các danh sách lựa chọn mẫu
   const cinemas = [
     "MovieMate Nguyễn Du",
-    "MovieMate Nguyễn Du",
+    "MovieMate Quế Thanh",
     "MovieMate Hai Bà Trưng",
     "MovieMate Mỹ Tho",
   ];
