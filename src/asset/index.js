@@ -59,6 +59,8 @@ import searchIcon from './searchIcon.svg'
 import seatWhiteIcon from './seatWhiteIcon.svg'
 import seatGrayIcon from './seatGrayIcon.svg'
 import seatYellowIcon from './seatYellowIcon.svg'
+import userWhiteIcon from './userWhiteIcon.svg'
+import userYellowIcon from './userYellowIcon.svg'
 
 import signUp from './signUp.jpg'
 import login from './login.jpg'
@@ -112,6 +114,8 @@ export default {
     seatWhiteIcon,
     seatGrayIcon,
     seatYellowIcon,
+    userWhiteIcon,
+    userYellowIcon,
     seatMap,
     signUp,
     login,

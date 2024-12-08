@@ -1,10 +1,13 @@
 import {
-  ROUTING_FACEBOOK,
   ROUTING_HOME,
-  ROUTING_LINKDIN,
-  ROUTING_TWITTER,
-  ROUTING_YOUTUBE,
-} from "../router";
+  ROUTING_LOGIN,
+  ROUTING_SIGNUP,
+  ROUTING_THEATER_DETAIL,
+  ROUTING_MOVIELIST_NS,
+  ROUTING_MOVIELIST_UC,
+  ROUTING_CONTACT_FROM,
+} from "../router/path";
+
 import { Link } from "react-router-dom";
 import images from "../asset";
 
@@ -32,19 +35,22 @@ const Footer = () => {
               <h3 className="text-gray-300 font-semibold mb-2 ">MOVIEMATE</h3>
               <ul className="space-y-1 ">
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
+                  <Link to="" className="hover:text-yellow-500">
                     Giới thiệu
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
+                  <Link
+                    to={ROUTING_CONTACT_FROM}
+                    className="hover:text-yellow-500"
+                  >
                     Liên hệ
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
+                  <Link to="" className="hover:text-yellow-500">
                     Tuyển dụng
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -52,14 +58,15 @@ const Footer = () => {
               <h3 className="text-gray-300 font-semibold mb-2 ">TÀI KHOẢN</h3>
               <ul className="space-y-1 ">
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
+                  <Link to={ROUTING_LOGIN} className="hover:text-yellow-500">
+                    {" "}
                     Đăng nhập
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
+                  <Link to={ROUTING_SIGNUP} className="hover:text-yellow-500">
                     Đăng ký
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -67,14 +74,20 @@ const Footer = () => {
               <h3 className="text-gray-300 font-semibold mb-2 ">XEM PHIM</h3>
               <ul className="space-y-1">
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
+                  <Link
+                    to={ROUTING_MOVIELIST_NS}
+                    className="hover:text-yellow-500"
+                  >
                     Phim đang chiếu
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
+                  <Link
+                    to={ROUTING_MOVIELIST_NS}
+                    className="hover:text-yellow-500"
+                  >
                     Phim sắp chiếu
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -84,24 +97,36 @@ const Footer = () => {
               </h3>
               <ul className="space-y-1">
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
+                  <Link
+                    to={ROUTING_THEATER_DETAIL}
+                    className="hover:text-yellow-500"
+                  >
                     Moviemate Nguyễn Du
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
+                  <Link
+                    to={ROUTING_THEATER_DETAIL}
+                    className="hover:text-yellow-500"
+                  >
                     Moviemate Quế Thanh
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
-                    Moviemate Hải Bà Trưng
-                  </a>
+                  <Link
+                    to={ROUTING_THEATER_DETAIL}
+                    className="hover:text-yellow-500"
+                  >
+                    Moviemate Hai Bà Trưng
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-500">
+                  <Link
+                    to={ROUTING_THEATER_DETAIL}
+                    className="hover:text-yellow-500"
+                  >
                     Moviemate Mỹ Tho
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -112,38 +137,26 @@ const Footer = () => {
         <div className="mt-10 border-t border-gray-700 pt-4 flex items-center justify-between text-gray-500 text-sm">
           <div className="flex space-x-6 mx-auto">
             <p>&copy; 2024 Brand, Inc.</p>
-            <a href="#" className="hover:text-yellow-500">
+            <Link to="" className="hover:text-yellow-500">
               Chính sách bảo mật
-            </a>
-            <a href="#" className="hover:text-yellow-500">
+            </Link>
+            <Link to="" className="hover:text-yellow-500">
               Hỏi đáp
-            </a>
+            </Link>
           </div>
 
           {/* Social Media Icons */}
           <div className="flex space-x-4">
-            <Link
-              to={ROUTING_TWITTER}
-              className="text-gray-500 hover:text-blue-400"
-            >
+            <Link to="" className="text-gray-500 hover:text-blue-400">
               <i className="fab fa-twitter"></i>
             </Link>
-            <Link
-              to={ROUTING_FACEBOOK}
-              className="text-gray-500 hover:text-blue-600"
-            >
+            <Link to="" className="text-gray-500 hover:text-blue-600">
               <i className="fab fa-facebook"></i>
             </Link>
-            <Link
-              to={ROUTING_LINKDIN}
-              className="text-gray-500 hover:text-blue-500"
-            >
+            <Link to="" className="text-gray-500 hover:text-blue-500">
               <i className="fab fa-linkedin"></i>
             </Link>
-            <Link
-              to={ROUTING_YOUTUBE}
-              className="text-gray-500 hover:text-red-600"
-            >
+            <Link to="" className="text-gray-500 hover:text-red-600">
               <i className="fab fa-youtube"></i>
             </Link>
           </div>

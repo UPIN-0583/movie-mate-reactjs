@@ -14,7 +14,7 @@ const HomePage = () => {
 
     return (
         <div className="bg-[#151515]">
-            <div className="w-11/12 m-auto pt-10">
+            <div className="w-11/12 m-auto pt-16">
                 <Banner />
             </div>
 

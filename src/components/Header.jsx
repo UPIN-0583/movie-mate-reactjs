@@ -1,38 +1,131 @@
 import { Link } from "react-router-dom";
-import { ROUTING_HOME, ROUTING_LOGIN, ROUTING_THEATER_DETAIL} from "../router/path";
+import {
+  ROUTING_HOME,
+  ROUTING_LOGIN,
+  ROUTING_PROMOTIONLIST,
+  ROUTING_THEATER_DETAIL,
+  ROUTING_MOVIELIST_NS,
+  ROUTING_MOVIELIST_UC,
+} from "../router/path";
 import images from "../asset";
+import { useState, useEffect } from "react";
 
 const Header = () => {
+  // State để theo dõi tình trạng đăng nhập và icon khi hover
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [iconHovered, setIconHovered] = useState(false);
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+        setIsLoggedIn(true);
+      } else {
+        setUser(null);
+        setIsLoggedIn(false);
+      }
+    };
+
+    // Lắng nghe sự kiện thay đổi localStorage
+    window.addEventListener("storage", handleStorageChange);
+
+    // Cleanup sự kiện khi component unmount
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user"); // Remove user data from localStorage
+    setIsLoggedIn(false); // Update the login status
+    setUser(null); // Reset user state
+  };
+
   return (
     <header className="bg-[#27282D] text-white py-4 px-8 flex items-center justify-between border-b border-white border-opacity-20">
       {/* Logo */}
       <Link to={ROUTING_HOME}>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center ml-8">
           <img src={images.logo} alt="MovieMate Logo" className="w-50 h-25" />
         </div>
       </Link>
 
       {/* Navigation Links */}
-      <nav className="flex space-x-6">
-        <Link to={ROUTING_HOME} className="hover:text-yellow-500">
-          Trang chủ
-        </Link>
-        <a href="#" className="hover:text-yellow-500">
-          Phim
-        </a>
-        <a href="#" className="hover:text-yellow-500">
-          Khuyến mãi
-        </a>
-        <Link to={ROUTING_THEATER_DETAIL} className="hover:text-yellow-500">
-          Rạp chiếu phim
-        </Link>
-        <a href="#" className="hover:text-yellow-500">
-          Review phim
-        </a>
+      <nav className="flex space-x-10 relative">
+        {/* Trang chủ */}
+        <div className="relative group">
+          <Link to={ROUTING_HOME} className="hover:text-yellow-500 text-lg">
+            Trang chủ
+          </Link>
+        </div>
+
+        {/* Menu Phim */}
+        <div className="relative group">
+          <Link to="#" className="hover:text-yellow-500 text-lg">
+            Phim
+          </Link>
+          <div className="absolute top-14 left-1/2 transform -translate-x-1/2 hidden group-focus-within:block bg-[#2A2A2A] rounded-lg shadow-lg mt-2 w-48 p-3 space-y-4 z-10">
+            <Link
+              to={ROUTING_MOVIELIST_NS}
+              className="block text-white hover:text-yellow-500"
+            >
+              Phim đang chiếu
+            </Link>
+            <Link
+              to={ROUTING_MOVIELIST_UC}
+              className="block text-white hover:text-yellow-500"
+            >
+              Phim sắp chiếu
+            </Link>
+          </div>
+        </div>
+
+        {/* Khuyến mãi */}
+        <div className="hover:text-yellow-500 text-lg">
+          <Link to={ROUTING_PROMOTIONLIST} className="hover:text-yellow-500">
+            Khuyến mãi
+          </Link>
+        </div>
+
+        {/* Menu Rạp chiếu phim */}
+        <div className="relative group">
+          <Link to="#" className="hover:text-yellow-500 text-lg">
+            Rạp chiếu phim
+          </Link>
+          <div className="absolute top-14 left-1/2 transform -translate-x-1/2 hidden group-focus-within:block bg-[#2A2A2A] rounded-lg shadow-lg mt-2 w-52 p-3 space-y-4 z-20">
+            <Link
+              to={ROUTING_THEATER_DETAIL}
+              className="block text-white hover:text-yellow-500"
+            >
+              Moviemate Nguyễn Du
+            </Link>
+            <Link
+              to={ROUTING_THEATER_DETAIL}
+              className="block text-white hover:text-yellow-500"
+            >
+              Moviemate Quế Thanh
+            </Link>
+            <Link
+              to={ROUTING_THEATER_DETAIL}
+              className="block text-white hover:text-yellow-500"
+            >
+              Moviemate Hải Bà Trưng
+            </Link>
+            <Link
+              to={ROUTING_THEATER_DETAIL}
+              className="block text-white hover:text-yellow-500"
+            >
+              Moviemate Mỹ Tho
+            </Link>
+          </div>
+        </div>
       </nav>
 
       {/* Search and Login */}
-      <div className="flex items-center space-x-5">
+      <div className="flex items-center space-x-5 me-10">
         {/* Search Bar */}
         <div className="relative">
           <input
@@ -44,27 +137,51 @@ const Header = () => {
           <i className="fa-solid fa-magnifying-glass text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2 text-lg"></i>
         </div>
 
-        {/* Login Button */}
-        <Link
-          to={ROUTING_LOGIN}
-          className="flex items-center space-x-1 hover:text-yellow-500"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-5 h-5"
+        {/* Login or User Info */}
+        {isLoggedIn ? (
+          <div className="relative group">
+            <Link
+              to="#"
+              className="flex items-center space-x-1 hover:text-yellow-500"
+              onMouseEnter={() => setIconHovered(true)} // Khi hover vào icon, thay đổi state
+              onMouseLeave={() => setIconHovered(false)} // Khi rời khỏi icon, quay lại màu mặc định
+            >
+              <img
+                src={iconHovered ? images.userYellowIcon : images.userWhiteIcon}
+                alt="User Icon"
+              />
+              <span>{user.name}</span>
+            </Link>
+            <div className="absolute top-14 left-1/2 transform -translate-x-1/2 hidden group-focus-within:block bg-[#2A2A2A] rounded-lg shadow-lg mt-2 w-44 p-3 space-y-4 z-10">
+              <Link to="" className="block text-white hover:text-yellow-500">
+                Thông tin cá nhân
+              </Link>
+              <Link to="" className="block text-white hover:text-yellow-500">
+                Thông tin vé đã đặt
+              </Link>
+              <Link
+                to=""
+                className="block text-white hover:text-yellow-500"
+                onClick={handleLogout}
+              >
+                Đăng xuất
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <Link
+            to={ROUTING_LOGIN}
+            className="flex items-center space-x-1 hover:text-yellow-500"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M16.5 7.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM12 14.25a7.5 7.5 0 00-7.5 7.5h15a7.5 7.5 0 00-7.5-7.5z"
+            <img
+              src={iconHovered ? images.userYellowIcon : images.userWhiteIcon}
+              alt="User Icon"
+              onMouseEnter={() => setIconHovered(true)} // Khi hover vào icon, thay đổi state
+              onMouseLeave={() => setIconHovered(false)} // Khi rời khỏi icon, quay lại màu mặc định
             />
-          </svg>
-          <span>Đăng nhập</span>
-        </Link>
+            <span>Đăng nhập</span>
+          </Link>
+        )}
       </div>
     </header>
   );

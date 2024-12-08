@@ -1,10 +1,37 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import images from '../asset';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ROUTING_SIGNUP } from "../router";
 
 const LoginPage = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    // Giả lập dữ liệu người dùng
+    const mockUserData = {
+        email: 'Nguyen@example.com',
+        password: '123456',
+        name: 'Nguyên',
+    };
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        // Kiểm tra thông tin đăng nhập (giả lập)
+        if (email === mockUserData.email && password === mockUserData.password) {
+            // Lưu thông tin người dùng vào localStorage
+            localStorage.setItem('user', JSON.stringify(mockUserData));
+            // Phát sự kiện storage
+            window.dispatchEvent(new Event("storage"));
+            navigate('/'); // Chuyển hướng về trang chủ sau khi đăng nhập thành công
+        } else {
+            setError('Vui lòng kiểm tra lại email và mật khẩu.');
+        }
+    };
+
     return (
         <div className="bg-[#151515] py-16 flex flex-col items-center justify-center ">
             <div className="max-w-4xl w-full bg-[#1E1E1E] bg-opacity-90 p-8 rounded-lg shadow-lg flex flex-col md:flex-row">
@@ -26,6 +53,8 @@ const LoginPage = () => {
                         <input
                             type="text"
                             placeholder="Nhập email hoặc số điện thoại"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             className="w-full px-4 py-2 rounded bg-gray-700 bg-opacity-50 text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
                         />
 
@@ -33,6 +62,8 @@ const LoginPage = () => {
                         <input
                             type="password"
                             placeholder="Nhập mật khẩu"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             className="w-full px-4 py-2 rounded bg-gray-700 bg-opacity-50 text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
                         />
 
@@ -48,11 +79,15 @@ const LoginPage = () => {
                             <a href="#" className="text-yellow-400 hover:underline">Quên mật khẩu?</a>
                         </div>
 
+                        <p className="text-red-500">{error}</p>
+
                         {/* Nút Đăng nhập */}
                         <button
                             type="submit"
                             className="w-full py-2 bg-yellow-500 text-gray-900 font-semibold rounded-lg hover:bg-yellow-600 transition duration-300"
+                            onClick={handleLogin}
                         >
+
                             Đăng nhập
                         </button>
 

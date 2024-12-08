@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ROUTING_HOME, ROUTING_LOGIN, ROUTING_MOVIEDETAIL_NS, ROUTING_MOVIEDETAIL_UC, ROUTING_MOVIELIST_NS, ROUTING_MOVIELIST_UC, ROUTING_SIGNUP, ROUTING_THEATER_DETAIL, ROUTING_PROMOTIONLIST } from "./path";
+import { ROUTING_HOME, ROUTING_LOGIN, ROUTING_MOVIEDETAIL_NS, ROUTING_MOVIEDETAIL_UC, ROUTING_MOVIELIST_NS, ROUTING_MOVIELIST_UC, ROUTING_SIGNUP, ROUTING_THEATER_DETAIL, ROUTING_PROMOTIONLIST, ROUTING_CONTACT_FROM } from "./path";
 import { HomePage } from "../page/Home.js";
 import { Layout } from "../page/layout.js";
 import { SignUpPage } from "../page/SignUp.js";
@@ -10,6 +10,7 @@ import { MovieListNS } from "../page/MovieListNS.js";
 import { MovieListUC } from "../page/MovieListUC.js";
 import { TheaterDetail } from "../page/TheaterDetail.js";
 import { PromotionList } from "../page/PromotionList.js";
+import { ContactForm } from "../page/ContactForm.js";
 
 
 
@@ -40,7 +41,11 @@ const WebRouter = () => {
                     <Route path={ROUTING_MOVIEDETAIL_UC} element={<MovieDetailUC />} />
                     <Route path={ROUTING_MOVIEDETAIL_NS} element={<MovieDetailNS />} />
 
+                    {/* Trang thông tin khuyến mãi */}
                     <Route path={ROUTING_PROMOTIONLIST} element={<PromotionList />} />
+
+                    {/* Trang liên hệ */}
+                    <Route path={ROUTING_CONTACT_FROM} element={<ContactForm />} />
                 </Route>
 
             </Routes>
