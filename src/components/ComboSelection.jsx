@@ -1,13 +1,8 @@
 import React, { useState } from "react";
-
-const combos = [
-  { id: 1, name: "Combo Solo", price: 50000, description: "1 Bắp Ngọt 60oz, 1 Coke 32oz" },
-  { id: 2, name: "Combo Couple", price: 115000, description: "1 Bắp Ngọt 60oz, 2 Coke 32oz" },
-  { id: 3, name: "Combo Party", price: 209000, description: "1 Bắp Ngọt 60oz, 1 Coke 32oz, 1 Hotdog 250g" },
-  { id: 4, name: "Combo Party", price: 229000, description: "2 Bắp Ngọt 60oz, 1 Coke 32oz, 1 Hotdog 250g" }
-];
+import { useMovies } from "../context/MovieContext";
 
 const ComboSelection = ({ onComboSelect }) => {
+  const { movies } = useMovies();  // Lấy dữ liệu từ MovieContext
   const [selectedCombos, setSelectedCombos] = useState({});
 
   const handleQuantityChange = (id, delta) => {
@@ -16,6 +11,9 @@ const ComboSelection = ({ onComboSelect }) => {
     setSelectedCombos({ ...selectedCombos, [id]: newQty });
     onComboSelect(id, newQty);
   };
+
+  // Lấy dữ liệu Combo từ MovieContext
+  const combos = movies.combos || [];  // Lấy combodata từ context, nếu không có thì dùng mảng rỗng
 
   return (
     <div className="bg-[#27282D] rounded-lg p-6">
