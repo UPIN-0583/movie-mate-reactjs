@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ROUTING_HOME, ROUTING_LOGIN, ROUTING_MOVIEDETAIL_NS, ROUTING_MOVIEDETAIL_UC, ROUTING_MOVIELIST_NS, ROUTING_MOVIELIST_UC, ROUTING_SIGNUP, ROUTING_THEATER_DETAIL, ROUTING_PROMOTIONLIST } from "./path";
+import { ROUTING_HOME, ROUTING_LOGIN, ROUTING_MOVIEDETAIL_NS, ROUTING_MOVIEDETAIL_UC, ROUTING_MOVIELIST_NS, ROUTING_MOVIELIST_UC, ROUTING_SIGNUP, ROUTING_THEATER_DETAIL, ROUTING_PROMOTIONLIST, ROUTING_INFO, ROUTING_TICKET_HISTORY } from "./path";
 import { HomePage } from "../page/Home.js";
 import { Layout } from "../page/layout.js";
 import { SignUpPage } from "../page/SignUp.js";
@@ -10,6 +10,8 @@ import { MovieListNS } from "../page/MovieListNS.js";
 import { MovieListUC } from "../page/MovieListUC.js";
 import { TheaterDetail } from "../page/TheaterDetail.js";
 import { PromotionList } from "../page/PromotionList.js";
+import { CustomerInfo } from "../page/CustomerInfo.js";
+import { TicketHistory } from "../page/TicketHistory.js";
 
 
 
@@ -30,6 +32,8 @@ const WebRouter = () => {
                     {/*Header*/}
                     <Route path={ROUTING_SIGNUP} element={<SignUpPage />} />
                     <Route path={ROUTING_LOGIN} element={<LoginPage />} />
+                    <Route path={ROUTING_INFO} element={<CustomerInfo/>}/>
+                    <Route path={ROUTING_TICKET_HISTORY} element={<TicketHistory/>}/>
 
 
                     {/* Trang danh sách phim*/}

@@ -7,6 +7,8 @@ export const ROUTING_HOME = "/"
 //Header
 export const ROUTING_SIGNUP = "/signup"
 export const ROUTING_LOGIN = "/login"
+export const ROUTING_INFO = "/customerinfo"
+export const ROUTING_TICKET_HISTORY = "/tickethistory"
 
 //Footer
 export const ROUTING_FACEBOOK = "https://www.facebook.com/tuyenphan1712/";
