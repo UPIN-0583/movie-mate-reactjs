@@ -66,6 +66,12 @@ import signUp from './signUp.jpg'
 import login from './login.jpg'
 import seatMap from './seatMap.png'
 
+import qrCode from './qrcode.svg'
+
+import combo from './Combo.webp'
+import combo1 from './Combo1.webp'
+import combo2 from './Combo2.webp'
+import combo3 from './Combo3.webp'
 
 export default {
     NowShowingMovie,
@@ -129,4 +135,9 @@ export default {
     Promotion6,
     Promotion7,
     TicketPrice,
+    qrCode,
+    combo,
+    combo1,
+    combo2,
+    combo3
 };

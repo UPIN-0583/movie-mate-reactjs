@@ -19,18 +19,27 @@ export const ROUTING_LINKDIN = "https://www.linkedin.com/in/phan-tuy%E1%BB%81n-4
 export const ROUTING_MOVIEDETAIL_UC = "/moviedetailUC"
 export const ROUTING_MOVIEDETAIL_NS = "/moviedetailNS"
 
+
 export const ROUTING_WATCHTRAILER_UC = "https://www.youtube.com/watch?v=HFzwmk-8zvI"
 export const ROUTING_WATCHTRAILER_NS = "https://www.youtube.com/watch?v=c1SpExI3r6k"
+
 
 //Danh sách phim 
 export const ROUTING_MOVIELIST_UC = "/movielistUC"
 export const ROUTING_MOVIELIST_NS = "/movielistNS"
 
+
 // Chi tiết rạp
 export const ROUTING_THEATER_DETAIL = "/TheaterDetail"
+
 
 // Danh sách khuyến mãi
 export const ROUTING_PROMOTIONLIST = "/PromotionList"
 
-//Liên hệ
+
+// Liên hệ
 export const ROUTING_CONTACT_FROM = "/ContactFrom"
+
+
+// Thanh toán
+export const ROUTING_ORDER_PAYMENT = "/OrderPayment"

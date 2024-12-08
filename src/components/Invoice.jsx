@@ -1,5 +1,7 @@
 import React from "react";
 import { useMovies } from "../context/MovieContext";
+import { Link } from "react-router-dom";
+import { ROUTING_ORDER_PAYMENT } from "../router/path";
 
 const Invoice = ({
   selectedSeats,
@@ -79,15 +81,17 @@ const Invoice = ({
         </div>
 
         <hr className="border-dashed border border-white" />
-        <p>
-          <strong className="text-yellow-400">TỔNG TIỀN:</strong>{" "}
-          {totalPrice.toLocaleString()} VND
-        </p>
+        <div className="flex justify-between items-center text-lg font-semibold text-white">
+          <p className="text-yellow-400">TỔNG TIỀN:</p>
+          <p>{totalPrice.toLocaleString()} VND</p>
+        </div>
       </div>
 
-      <button className="bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg w-full mt-4">
-        Đặt vé
-      </button>
+      <Link to={ROUTING_ORDER_PAYMENT}>
+        <button className="bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg w-full mt-4">
+          Đặt vé
+        </button>
+      </Link>
     </div>
   );
 };

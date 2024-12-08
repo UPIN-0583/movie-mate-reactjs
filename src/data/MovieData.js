@@ -92,11 +92,11 @@ const moviePromotions = [
 ];
 
 const comboData = [
-    { id: 1, name: "Combo Solo", price: 50000, description: "1 Bắp Ngọt 60oz, 1 Coke 32oz" },
-    { id: 2, name: "Combo Couple", price: 115000, description: "1 Bắp Ngọt 60oz, 2 Coke 32oz" },
-    { id: 3, name: "Combo Party", price: 209000, description: "1 Bắp Ngọt 60oz, 1 Coke 32oz, 1 Hotdog 250g" },
-    { id: 4, name: "Combo Party", price: 229000, description: "2 Bắp Ngọt 60oz, 1 Coke 32oz, 1 Hotdog 250g" }
-  ];
+    { id: 1, name: "Combo Solo", price: 50000, image: images.combo, description: "1 Bắp Ngọt 60oz, 1 Coke 32oz" },
+    { id: 2, name: "Combo Solo 2", price: 229000, image: images.combo3, description: "1 Coke 32oz, 1 Hotdog 250g" },
+    { id: 3, name: "Combo Couple", price: 115000, image: images.combo1, description: "1 Bắp Ngọt 60oz, 2 Coke 32oz" },
+    { id: 4, name: "Combo Party", price: 209000, image: images.combo2, description: "1 Bắp Ngọt 60oz, 3 Coke 32oz" }
+];
 
 
 
