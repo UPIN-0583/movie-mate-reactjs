@@ -76,7 +76,7 @@ const PromotionList = ({ promotions }) => {
 
         {/* Nút mũi tên phải */}
         <button
-          onClick={handlePrev}
+          onClick={handleNext}
           className="right-1 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
         >
           {">"}

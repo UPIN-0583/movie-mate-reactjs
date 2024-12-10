@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import images from "../asset";
+import { useMovies } from "../context/MovieContext";
 
 const Navigate = () => {
   const [selectedCinema, setSelectedCinema] = useState("");
@@ -7,26 +8,13 @@ const Navigate = () => {
   const [selectedDay, setSelectedDay] = useState("");
   const [selectedShow, setSelectedShow] = useState("");
 
-  // Các danh sách lựa chọn mẫu
-  const cinemas = [
-    "MovieMate Nguyễn Du",
-    "MovieMate Quế Thanh",
-    "MovieMate Hai Bà Trưng",
-    "MovieMate Mỹ Tho",
-  ];
-  const movies = [
-    "Ta Đã Yêu Nhau",
-    "Quỷ Ăn Tạng Phần 2",
-    "Venon: Kèo Cuối",
-    "Lối Thoát Cuối Cùng",
-  ];
-  const days = [
-    "Chủ Nhật, 27/10/2024",
-    "Thứ Hai, 28/10/2024",
-    "Thứ Ba, 29/10/2024",
-    "Thứ Tư, 30/10/2024",
-  ];
-  const shows = ["17:30 PM", "18:00 PM", "19:15 PM", "20:15 PM"];
+  const { movies } = useMovies();
+
+  // Lấy dữ liệu từ movies
+  const movie = movies.movie || [];
+  const days = movies.days || [];
+  const cinemas = movies.cinemas || [];
+  const times = movies.times || [];
 
   return (
     <div className="bg-[#27282D] flex items-center justify-center space-x-4 p-4 rounded-lg">
@@ -58,7 +46,7 @@ const Navigate = () => {
           <option value="" disabled hidden>
             2. Chọn phim
           </option>
-          {movies.map((movie, index) => (
+          {movie.map((movie, index) => (
             <option key={index} value={movie}>
               {movie}
             </option>
@@ -94,7 +82,7 @@ const Navigate = () => {
           <option value="" disabled hidden>
             4. Chọn suất
           </option>
-          {shows.map((show, index) => (
+          {times.map((show, index) => (
             <option key={index} value={show}>
               {show}
             </option>

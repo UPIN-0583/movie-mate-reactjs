@@ -1,37 +1,13 @@
 import React from "react";
 import { TicketCard } from "../components/TicketCard";
-import images from "../asset";
+import { useMovies } from "../context/MovieContext";
 
 const TicketHistory = () => {
-  const ticketDetails = {
-    title: "Lối Thoát Cuối Cùng",
-    poster: images.NowShowingMovie,
-    duration: "2h 29m",
-    genre: "Hành động, tâm lý",
-    time: "20:15 PM",
-    date: "18/06/2024",
-    room: "Phòng 4",
-    seats: "Ghế H7, H8",
-    price: "210.000 VNĐ",
-    theater: "Moviemate Nguyễn Du",
-    address: "116 Nguyễn Du, Quận 1, Tp.HCM",
-    barcode: "78889377726",
-  };
+  const { movies } = useMovies();
 
-  const transactions = [
-    {
-      date: "18/06/2024",
-      orderId: "78889377726",
-      movieName: "Lối thoát cuối cùng",
-      amount: "210.000 VNĐ",
-    },
-    ...Array(6).fill({
-      date: "16/06/2024",
-      orderId: "18257917519",
-      movieName: "Cái Giá Của Hạnh Phúc",
-      amount: "120.000 VNĐ",
-    }),
-  ];
+
+  const ticketDetails = movies.ticketDetails || [];
+  const transactions = movies.transactions || [];
 
   return (
     <div className="bg-[#151515] text-white min-h-screen py-10">
@@ -39,7 +15,7 @@ const TicketHistory = () => {
         {/* Title section */}
         <div className="flex justify-center items-center mt-4 mb-10 p-4 bg-blue-950 rounded-lg">
           <h2 className="text-white text-2xl font-bold">
-            THÔNG TIN KHÁCH HÀNG
+            LỊCH SỬ ĐẶT VÉ
           </h2>
         </div>
 

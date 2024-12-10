@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useMovies } from "../context/MovieContext";
 
 const MovieSchedule = ({ onScheduleSelect }) => {
+  const { movies } = useMovies();
+
   const [startDate, setStartDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedCinema, setSelectedCinema] = useState("MovieMate Nguyễn Du");
@@ -16,14 +19,9 @@ const MovieSchedule = ({ onScheduleSelect }) => {
     "Thứ Bảy",
   ];
 
-  const times = ["14:00", "16:00", "18:30", "20:45"];
+  const times = movies.times || [];
 
-  const cinemas = [
-    "MovieMate Nguyễn Du",
-    "MovieMate Quế Thanh",
-    "MovieMate Hai Bà Trưng",
-    "MovieMate Mỹ Tho"
-  ];
+  const cinemas = movies.cinemas || [];
 
   const formatDate = (date) => {
     const day = daysOfWeek[date.getDay()];

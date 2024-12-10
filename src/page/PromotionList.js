@@ -10,7 +10,7 @@ const PromotionList = () => {
 
     // Xử lý sự kiện khi nhấn nút "Xem thêm"
     const handleSeeMore = () => {
-        setVisiblePromotions(visiblePromotions + 4); // Mỗi lần nhấn "Xem thêm" sẽ thêm 4 khuyến mãi
+        setVisiblePromotions(visiblePromotions + 2); // Mỗi lần nhấn "Xem thêm" sẽ thêm 2 khuyến mãi
     };
 
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import images from "../asset"; // Giả sử bạn đã import các icon từ thư mục asset
+import images from "../asset"; 
 
 const TicketCard = ({ ticketDetails }) => {
   return (

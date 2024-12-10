@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { TheaterSlider } from "../components/TheaterSlider";
-import { PromotionList } from "../components/PromotionList";
-import { useMovies } from "../context/MovieContext";
 import images from "../asset";
 
 const TheaterDetail = () => {
-  const { movies } = useMovies();
-  const promotions = movies.promotions || [];
 
   return (
     <div className="bg-[#151515] min-h-screen flex flex-col">

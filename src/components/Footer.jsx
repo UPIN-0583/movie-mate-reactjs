@@ -83,7 +83,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to={ROUTING_MOVIELIST_NS}
+                    to={ROUTING_MOVIELIST_UC}
                     className="hover:text-yellow-500"
                   >
                     Phim sắp chiếu
