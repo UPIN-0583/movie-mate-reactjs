@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { NowShowingMovieCard } from "../components/NowShowingMovieCard";
 import { useMovies } from "../context/MovieContext";
 
