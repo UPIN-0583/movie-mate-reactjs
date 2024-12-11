@@ -27,7 +27,7 @@ const OrderPayment = () => {
                             <p className="text-yellow-400">Thành tiền:</p>
                             <p>348.000 đ</p>
                         </div>
-                        <button className="mt-4 bg-indigo-500 hover:bg-indigo-600 text-black py-2 px-4 rounded-lg w-full font-semibold">
+                        <button className="mt-4 bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg w-full ">
                             Xác nhận đã thanh toán
                         </button>
                     </div>
