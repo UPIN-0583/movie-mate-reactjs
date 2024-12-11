@@ -1,5 +1,6 @@
 import React from "react";
 import images from "../asset";
+
 const OrderPayment = () => {
     return (
         <div className="bg-[#151515] min-h-screen flex flex-col">

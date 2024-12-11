@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useMovies } from "../context/MovieContext";
 
 const MovieSchedule = ({ onScheduleSelect }) => {

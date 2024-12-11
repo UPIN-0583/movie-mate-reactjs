@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { TheaterSlider } from "../components/TheaterSlider";
 import images from "../asset";
 
