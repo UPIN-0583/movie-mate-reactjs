@@ -5,7 +5,6 @@ import { useMovies } from "../context/MovieContext";
 const TicketHistory = () => {
   const { movies } = useMovies();
 
-
   const ticketDetails = movies.ticketDetails || [];
   const transactions = movies.transactions || [];
 

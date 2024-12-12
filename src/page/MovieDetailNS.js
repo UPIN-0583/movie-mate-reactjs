@@ -1,173 +1,100 @@
-  import React, { useState } from "react";
-  import { SeatMap } from "../components/SeatMap";
-  import { ComboSelection } from "../components/ComboSelection";
-  import { Invoice } from "../components/Invoice";
-  import { MovieSchedule } from "../components/MovieSchedule";
-  import { ROUTING_WATCHTRAILER_NS } from "../router";
-  import images from "../asset";
+import React, { useState } from "react";
+import { SeatMap } from "../components/SeatMap";
+import { ComboSelection } from "../components/ComboSelection";
+import { Invoice } from "../components/Invoice";
+import { MovieSchedule } from "../components/MovieSchedule";
+import { MovieInfo } from "../components/MovieInfo";
+import { ROUTING_WATCHTRAILER_NS } from "../router";
+import images from "../asset";
 
-  const MovieDetailNS = () => {
+const MovieDetailNS = () => {
+  const daysOfWeek = [
+    "Chủ Nhật",
+    "Thứ Hai",
+    "Thứ Ba",
+    "Thứ Tư",
+    "Thứ Năm",
+    "Thứ Sáu",
+    "Thứ Bảy",
+  ];
 
-    const daysOfWeek = [
-      "Chủ Nhật",
-      "Thứ Hai",
-      "Thứ Ba",
-      "Thứ Tư",
-      "Thứ Năm",
-      "Thứ Sáu",
-      "Thứ Bảy",
-    ];
+  const formatDate = (date) => {
+    const day = daysOfWeek[date.getDay()];
+    const dayOfMonth = date.getDate();
+    const month = date.getMonth() + 1;
+    return `${day} ${dayOfMonth}/${month}`;
+  };
 
-    const formatDate = (date) => {
-      const day = daysOfWeek[date.getDay()];
-      const dayOfMonth = date.getDate();
-      const month = date.getMonth() + 1;
-      return `${day} ${dayOfMonth}/${month}`;
-    };
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  const [selectedCombos, setSelectedCombos] = useState({});
+  const [selectedSchedule, setSelectedSchedule] = useState(null);
+  const [selectedCinema, setSelectedCinema] = useState("MovieMate Nguyễn Du");
+  const [selectedMovie, setSelectedMovie] = useState("Domino: Lối Thoát Cuối Cùng");
+  const [selectedTime, setSelectedTime] = useState("14:00");
+  const [selectedDate, setSelectedDate] = useState(formatDate(new Date()));
 
-    const [selectedSeats, setSelectedSeats] = useState([]);
-    const [selectedCombos, setSelectedCombos] = useState({});
-    const [selectedSchedule, setSelectedSchedule] = useState(null);
-    const [selectedCinema, setSelectedCinema] = useState("MovieMate Nguyễn Du");
-    const [selectedMovie, setSelectedMovie] = useState("Domino: Lối Thoát Cuối Cùng");
-    const [selectedTime, setSelectedTime] = useState("14:00");
-    const [selectedDate, setSelectedDate] = useState(formatDate(new Date()));
+  const handleScheduleSelect = (schedule) => {
+    setSelectedSchedule(schedule);
+    setSelectedTime(schedule.time);
+    setSelectedCinema(schedule.theater);
+    setSelectedDate(schedule.date);
+  };
 
-   
+  const handleSeatSelection = (seats) => setSelectedSeats(seats);
 
-    // Hàm nhận thông tin lịch chiếu từ MovieSchedule
-    const handleScheduleSelect = (schedule) => {
-      setSelectedSchedule(schedule); // Cập nhật thông tin lịch chiếu
-      setSelectedTime(schedule.time); // Cập nhật thời gian
-      setSelectedCinema(schedule.theater); // Cập nhật tên rạp
-      setSelectedDate(schedule.date); // Cập nhật ngày chiếu
-    };
+  const handleComboSelection = (id, qty) =>
+    setSelectedCombos({ ...selectedCombos, [id]: qty });
 
-    const handleSeatSelection = (seats) => setSelectedSeats(seats);
+  const handleWatchTrailerClick = () => {
+    window.open(ROUTING_WATCHTRAILER_NS, "_blank");
+  };
 
-    const handleComboSelection = (id, qty) =>
-      setSelectedCombos({ ...selectedCombos, [id]: qty });
+  return (
+    <div className="bg-[#151515] text-white min-h-screen">
+      <div className="container mx-auto px-4 py-10 ">
+        {/* Poster và Thông Tin Phim */}
+        <MovieInfo
+          movie={selectedMovie}
+          poster={images.NowShowingMovie}
+          genres={['Hành Động', 'Tâm Lý']}
+          rating="PG"
+          duration="1h 55m"
+          description="Sau khi cha bị kẻ ác sát hại, từ người ngoài cuộc, An (Thuận Nguyễn) từng bước bị kéo vào cuộc chiến của các phe đảng xã hội đen. An một mình sẽ phải đối mặt với những nguy hiểm đe dọa đến cả tính mạng."
+          producer="Nguyễn Phúc Huy Cương"
+          director="Nguyễn Phúc Huy Cương"
+          cast={['Thuận Nguyễn', 'Quốc Cường', 'Henry Nguyễn', 'Huỳnh Anh Tuấn', 'Cát Hạ']}
+          onWatchTrailerClick={handleWatchTrailerClick}
+        />
 
-    const handleWatchTrailerClick = () => {
-      window.open(ROUTING_WATCHTRAILER_NS, "_blank"); // Mở đường dẫn trong tab mới
-    };
+        {/* Lịch chiếu */}
+        <div className="mt-10 w-11/12 m-auto">
+          <MovieSchedule onScheduleSelect={handleScheduleSelect} />
+        </div>
 
-    return (
-      <div className="bg-[#151515] text-white min-h-screen">
-        <div className="container mx-auto px-4 py-10 ">
-          {/* Poster và Thông Tin Phim */}
-          <div className="flex flex-col md:flex-row items-start gap-8 w-11/12 m-auto">
-            {/* Poster Phim */}
-            <div className="w-1/4 ms-8">
-              <img
-                src={images.NowShowingMovie}
-                alt="Movie Poster"
-                className="rounded-lg shadow-lg border border-white"
-              />
-            </div>
+        {/* Sơ Đồ Ghế */}
+        <div className="mt-10 w-11/12 m-auto ">
+          <SeatMap onSeatSelect={handleSeatSelection} />
+        </div>
 
-            {/* Thông Tin Phim */}
-            <div className="flex-1 md:flex md:justify-between md:items-start mt-10">
-              <div className="md:w-2/3 text-left">
-                <h1 className="text-4xl font-bold mb-4">{selectedMovie}</h1>
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 bg-gray-800 rounded-full text-sm">Hành Động</span>
-                  <span className="px-3 py-1 bg-gray-800 rounded-full text-sm">Tâm Lý</span>
-                </div>
-
-                <div className="flex items-center gap-4 mb-4">
-                  <p className=" bg-orange-200 text-black p-2 rounded-full w-12 text-center h-10">PG</p>
-                  <span>13 (18+)</span>
-                  <img className="bg-green-200 text-black p-2 rounded-full w-12 text-center h-10"
-                    src={images.timeBlackIcon}
-                    alt="time icon" />
-                  <span>1h 55m</span>
-                </div>
-
-                <div className="flex items-center text-2xl gap-1 mb-4">
-                  {[...Array(4)].map((_, i) => (
-                    <img
-                      src={images.starYellowIcon}
-                      alt="star fill"
-                    />
-                  ))}
-                  <img
-                    src={images.starGrayIcon}
-                    alt="star no fill" />{/* Sao rỗng */}
-                </div>
-
-                <p className="mb-4 text-lg text-blue-500 font-bold">
-                  Nội dung chính
-                </p>
-                <p className="mb-4">
-                  Sau khi cha bị kẻ ác sát hại, từ người ngoài cuộc, An (Thuận Nguyễn) từng bước bị kéo vào cuộc chiến của các phe đảng xã hội đen. An một mình sẽ phải đối mặt với những nguy hiểm đe dọa đến cả tính mạng.
-                </p>
-
-                <button
-                  className="bg-transparent border border-white text-white font-bold py-2 px-4 rounded-lg flex items-center text-sm w-35"
-                  onClick={handleWatchTrailerClick}
-                >
-                  <img
-                    src={images.trailerIcon}
-                    alt="Trailer"
-                    className="w-6 h-6"
-                  />
-                  <p className='ps-2'>Xem Trailer</p>
-                </button>
-              </div>
-
-              {/* Chi Tiết Bổ Sung */}
-              <div className="mt-8 md:mt-0 w-1/3 text-left p-7 h-auto">
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="font-semibold text-blue-500">Nhà sản xuất</h3>
-                    <p>Nguyễn Phúc Huy Cương</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-blue-500">Đạo diễn</h3>
-                    <p>Nguyễn Phúc Huy Cương</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-blue-500">Diễn viên</h3>
-                    <p>Thuận Nguyễn</p>
-                    <p>Quốc Cường</p>
-                    <p>Henry Nguyễn</p>
-                    <p>Huỳnh Anh Tuấn</p>
-                    <p>Cát Hạ</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        {/* Combo và hoá đơn */}
+        <div className="mt-10 w-11/12 m-auto grid grid-cols-3 gap-6">
+          <div className="col-span-2">
+            <ComboSelection onComboSelect={handleComboSelection} />
           </div>
-
-          <div className="mt-10 w-11/12 m-auto">
-            <MovieSchedule onScheduleSelect={handleScheduleSelect} />
-          </div>
-
-          {/* Sơ Đồ Ghế */}
-          <div className="mt-10 w-11/12 m-auto ">
-            <SeatMap onSeatSelect={handleSeatSelection} />
-          </div>
-        
-          {/* Combo và hoá đơn */}
-          <div className="mt-10 w-11/12 m-auto grid grid-cols-3 gap-6">
-            <div className="col-span-2">
-              <ComboSelection onComboSelect={handleComboSelection} />
-            </div>
-            <div className="col-span-1">
-              <Invoice 
-                selectedSeats={selectedSeats} 
-                selectedCombos={selectedCombos}
-                selectedCinema={selectedCinema} 
-                selectedMovie={selectedMovie}
-                selectedTime={selectedTime}
-                selectedDate={selectedDate}
-              />
-            </div>
+          <div className="col-span-1">
+            <Invoice
+              selectedSeats={selectedSeats}
+              selectedCombos={selectedCombos}
+              selectedCinema={selectedCinema}
+              selectedMovie={selectedMovie}
+              selectedTime={selectedTime}
+              selectedDate={selectedDate}
+            />
           </div>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
-  export { MovieDetailNS };
+export { MovieDetailNS };
