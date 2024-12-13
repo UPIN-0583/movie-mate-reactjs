@@ -326,10 +326,10 @@ const movieData = [
   ];
 
   const daysData = [
-    "Chủ Nhật, 27/10/2024",
-    "Thứ Hai, 28/10/2024",
-    "Thứ Ba, 29/10/2024",
-    "Thứ Tư, 30/10/2024",
+    "Chủ Nhật, 15/12/2024",
+    "Thứ Hai, 16/12/2024",
+    "Thứ Ba, 17/12/2024",
+    "Thứ Tư, 18/12/2024",
   ];
 
   const ticketDetailsData = {
@@ -337,11 +337,11 @@ const movieData = [
     poster: images.NowShowingMovie,
     duration: "2h 29m",
     genre: "Hành động, tâm lý",
-    time: "20:15 PM",
-    date: "18/06/2024",
+    time: "14:00 PM",
+    date: "16/12/2024",
     room: "Phòng 4",
-    seats: "Ghế H7, H8",
-    price: "210.000 VNĐ",
+    seats: "Ghế A7, A8, E9, E10",
+    price: "430.000 VNĐ",
     theater: "Moviemate Nguyễn Du",
     address: "116 Nguyễn Du, Quận 1, Tp.HCM",
     barcode: "78889377726",
@@ -349,10 +349,10 @@ const movieData = [
 
   const transactionsData = [
     {
-      date: "18/06/2024",
+      date: "16/12/2024",
       orderId: "78889377726",
       movieName: "Lối thoát cuối cùng",
-      amount: "210.000 VNĐ",
+      amount: "430.000 VNĐ",
     },
     ...Array(6).fill({
       date: "16/06/2024",

@@ -7,9 +7,9 @@ const OrderPayment = () => {
   // Dữ liệu đơn hàng
   const orderData = {
     supplier: "MovieMate Cinema",
-    orderId: "12345678910",
-    orderDetails: "Mua vé xem phim Dimono: Lối thoát cuối cùng, Ghế G4 G5 G13 G14",
-    totalAmount: "348.000"
+    orderId: "78889377726",
+    orderDetails: "Mua vé xem phim Dimono: Lối thoát cuối cùng, Ghế A7 A8 E9 E10, 2 Combo Couple",
+    totalAmount: "430.000"
   };
 
   return (
