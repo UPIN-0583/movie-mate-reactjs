@@ -362,6 +362,7 @@ const movieData = [
     }),
   ];
 
+
 // Export tất cả các danh mục phim
 const moviesData = {
   nowShowing: nowShowingMovies,
@@ -375,6 +376,7 @@ const moviesData = {
   days: daysData,
   ticketDetails: ticketDetailsData,
   transactions: transactionsData,
+
 };
 
 export default moviesData;

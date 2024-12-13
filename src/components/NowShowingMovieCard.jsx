@@ -54,7 +54,7 @@ const NowShowingMovieCard = ({ movie }) => {
             <p className="ps-2">Đặt vé</p>
           </button>
           <button
-            className="bg-transparent border border-white text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center w-36 text-white font-bold py-2 px-4 rounded-lg flex items-center text-sm w-36"
+            className="bg-transparent border border-white text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center text-sm"
             onClick={(e) => {
               e.stopPropagation(); // Ngăn sự kiện lan đến thẻ cha
               handleWatchTrailerClick(); // Mở trailer

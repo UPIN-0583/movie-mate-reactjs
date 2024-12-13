@@ -12,7 +12,7 @@ const LoginPage = () => {
 
     // Giả lập dữ liệu người dùng
     const mockUserData = {
-        email: 'Nguyen@example.com',
+        email: 'Nguyen@gmail.com',
         password: '123456',
         name: 'Nguyên',
     };

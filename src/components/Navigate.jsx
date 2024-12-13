@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import images from "../asset";
 import { useMovies } from "../context/MovieContext";
+import { ROUTING_MOVIEDETAIL_NS } from "../router/path";
+import { Link } from "react-router-dom";
 
 const Navigate = () => {
   const [selectedCinema, setSelectedCinema] = useState("");
@@ -91,10 +93,13 @@ const Navigate = () => {
       </div>
 
       {/* Nút Đặt vé nhanh */}
-      <button className="flex items-center justify-center px-4 py-2 bg-yellow-400 text-black font-bold text-lg rounded-lg border-4 border-yellow-400">
-        <img src={images.bookingIcon} alt="Booking" className="w-6 h-6" />
-        <div className="ms-2">Đặt vé nhanh</div>
-      </button>
+      <Link
+        to={ROUTING_MOVIEDETAIL_NS}>
+        <button className="flex items-center justify-center px-4 py-2 bg-yellow-400 text-black font-bold text-lg rounded-lg border-4 border-yellow-400">
+          <img src={images.bookingIcon} alt="Booking" className="w-6 h-6" />
+          <div className="ms-2">Đặt vé nhanh</div>
+        </button>
+      </Link>
     </div>
   );
 };
