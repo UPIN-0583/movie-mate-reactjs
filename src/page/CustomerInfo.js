@@ -9,7 +9,7 @@ const CustomerInfo = () => {
         {/* Title section */}
         <div className="flex justify-center items-center mt-4 mb-10 p-4 bg-blue-950 rounded-lg">
           <h2 className="text-white text-2xl font-bold">
-            THÔNG TIN KHÁCH HÀNG
+            THÔNG TIN CÁ NHÂN
           </h2>
         </div>
 

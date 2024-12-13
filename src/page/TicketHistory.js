@@ -14,7 +14,7 @@ const TicketHistory = () => {
         {/* Title section */}
         <div className="flex justify-center items-center mt-4 mb-10 p-4 bg-blue-950 rounded-lg">
           <h2 className="text-white text-2xl font-bold">
-            LỊCH SỬ ĐẶT VÉ
+            LỊCH SỬ MUA VÉ
           </h2>
         </div>
 

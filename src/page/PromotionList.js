@@ -19,7 +19,7 @@ const PromotionList = () => {
                 {/* Tiêu đề trang */}
                 <div className="flex justify-center items-center mt-4 mb-10 p-4 bg-blue-950 rounded-lg">
                     <h2 className="text-white text-2xl font-bold">
-                        THÔNG TIN KHUYẾN MÃI
+                        DANH SÁCH KHUYẾN MÃI
                     </h2>
                 </div>
 
