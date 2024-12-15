@@ -18,7 +18,7 @@ const TicketHistory = () => {
           </h2>
         </div>
 
-        <div className="flex gap-8">
+        <div className="flex flex-row gap-8">
           {/* Thẻ vé chi tiết */}
           <div className="w-1/3">
             <TicketCard ticketDetails={ticketDetails} />

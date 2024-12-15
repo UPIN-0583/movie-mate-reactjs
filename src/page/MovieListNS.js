@@ -24,7 +24,7 @@ const MovieListNS = () => {
         </div>
 
         {/* Movie List */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1 gap-y-8 mb-8 justify-items-center">
+        <div className="grid grid-cols-4 gap-x-1 gap-y-8 mb-8 justify-items-center">
           {nowShowingMovies.slice(0, visibleMovies).map((movie, index) => (
             <NowShowingMovieCard key={index} movie={movie} />
           ))}
