@@ -6,15 +6,10 @@ const MovieContext = createContext();
 
 // Provider để chia sẻ dữ liệu phim trong toàn ứng dụng
 export const MovieProvider = ({ children }) => {
-  const [movies, setMovies] = useState(moviesData);
-
-  // Bạn có thể thêm các hàm update dữ liệu nếu cần
-  const updateMovies = (category, newMovies) => {
-    setMovies(prevMovies => ({ ...prevMovies, [category]: newMovies }));
-  };
+  const [movies] = useState(moviesData);
 
   return (
-    <MovieContext.Provider value={{ movies, updateMovies }}>
+    <MovieContext.Provider value={{ movies}}>
       {children}
     </MovieContext.Provider>
   );
