@@ -1,7 +1,27 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ROUTING_HOME, ROUTING_LOGIN, ROUTING_MOVIEDETAIL_NS, ROUTING_MOVIEDETAIL_UC, ROUTING_MOVIELIST_NS, ROUTING_MOVIELIST_UC, ROUTING_SIGNUP, ROUTING_THEATER_DETAIL, ROUTING_PROMOTIONLIST, ROUTING_INFO, ROUTING_TICKET_HISTORY, ROUTING_CONTACT_FROM, ROUTING_ORDER_PAYMENT } from "./path";
+import {
+    ROUTING_HOME,
+    ROUTING_LOGIN,
+    ROUTING_MOVIEDETAIL_NS,
+    ROUTING_MOVIEDETAIL_UC,
+    ROUTING_MOVIELIST_NS,
+    ROUTING_MOVIELIST_UC,
+    ROUTING_SIGNUP,
+    ROUTING_THEATER_DETAIL,
+    ROUTING_PROMOTIONLIST,
+    ROUTING_INFO,
+    ROUTING_TICKET_HISTORY,
+    ROUTING_CONTACT_FROM,
+    ROUTING_ORDER_PAYMENT,
+    ROUTING_ADMIN,
+    ROUTING_USER_MANAGEMENT,
+    ROUTING_MOVIE_MANAGEMENT,
+    ROUTING_ROOM_MANAGEMENT,
+    ROUTING_TICKET_MANAGEMENT,
+    ROUTING_ORDER_MANAGEMENT, ROUTING_DASHBOARD, ROUTING_USER_CREATE
+} from "./path";
 import { HomePage } from "../page/Home.js";
 import { Layout } from "../page/layout.js";
 import { SignUpPage } from "../page/SignUp.js";
@@ -16,16 +36,20 @@ import { CustomerInfo } from "../page/CustomerInfo.js";
 import { TicketHistory } from "../page/TicketHistory.js";
 import { ContactForm } from "../page/ContactForm.js";
 import { OrderPayment } from "../page/OrderPayment.js";
+import {AdminLayout} from "../admin-page/admin-layout";
+import {Dashboard} from "../admin-page/dashboard";
+import {UserManagement} from "../admin-page/user-management";
+import {UserCreate} from "../admin-page/user-create";
 
 const ScrollToTop = () => {
     const location = useLocation();
-  
+
     useEffect(() => {
-      window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
     }, [location]);
-  
+
     return null;
-  };
+};
 
 
 
@@ -33,7 +57,7 @@ const WebRouter = () => {
 
     return (
         <BrowserRouter>
-        <ScrollToTop />
+            <ScrollToTop />
             <Routes>
                 <Route path={""} element={<Layout />}>
                     {/* Trang mặc định */}
@@ -67,8 +91,15 @@ const WebRouter = () => {
 
                     {/* Trang thanh toán */}
                     <Route path={ROUTING_ORDER_PAYMENT} element={<OrderPayment />} />
-                </Route>
 
+
+
+                </Route>
+                <Route path={ROUTING_ADMIN} element={<AdminLayout />}>
+                    <Route path={ROUTING_DASHBOARD} element={<Dashboard />} />
+                    <Route path={ROUTING_USER_MANAGEMENT} element={<UserManagement />} />
+                    <Route path={ROUTING_USER_CREATE} element={<UserCreate />} />
+                </Route>
             </Routes>
         </BrowserRouter>
     )

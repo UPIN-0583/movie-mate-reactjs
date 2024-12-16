@@ -45,3 +45,8 @@ export const ROUTING_CONTACT_FROM = "/ContactFrom"
 
 // Thanh toán
 export const ROUTING_ORDER_PAYMENT = "/OrderPayment"
+
+export const ROUTING_ADMIN = "/admin"
+export const ROUTING_DASHBOARD = "/admin/dashboard"
+export const ROUTING_USER_MANAGEMENT = "/admin/user-management"
+export const ROUTING_USER_CREATE = "/admin/user-create"
