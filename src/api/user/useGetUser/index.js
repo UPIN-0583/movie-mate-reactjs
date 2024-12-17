@@ -11,7 +11,7 @@ const useGetUsers = () => {
             return getUser()
         } })
 
-    console.log("User data:", data);
+    // console.log("User data:", data);
 
     return {
         data,

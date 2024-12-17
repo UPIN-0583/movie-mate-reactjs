@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useCreateUser } from '../api/user/useCreateUser';
-import {ROUTING_USER_MANAGEMENT} from "../router";  // Hook tạo người dùng
+import { ROUTING_USER_MANAGEMENT } from "../router";  // Hook tạo người dùng
 
 const UserCreate = () => {
     const {
@@ -20,6 +20,7 @@ const UserCreate = () => {
             onSuccess: () => {
                 // Điều hướng đến trang User Management khi tạo thành công
                 navigate(ROUTING_USER_MANAGEMENT);
+                console.log('createUser data: ' + data);
             },
             onError: (err) => {
                 // Xử lý lỗi nếu có
@@ -127,6 +128,24 @@ const UserCreate = () => {
                         {...register('status')}
                         className="w-full p-2 mt-2 rounded bg-gray-700 text-gray-200"
                     />
+                </div>
+
+                {/* Password */}
+                <div className="mb-4">
+                    <label htmlFor="password" className="text-gray-200">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        {...register('password', {
+                            required: 'Password is required',
+                            minLength: {
+                                value: 6,
+                                message: 'Password must be at least 6 characters long'
+                            }
+                        })}
+                        className="w-full p-2 mt-2 rounded bg-gray-700 text-gray-200"
+                    />
+                    {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
                 </div>
 
                 <button

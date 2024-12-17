@@ -10,7 +10,7 @@ const UserManagement = () => {
     if (error) {
         return <div>Error: {error.message}</div>;
     }
-    console.log(UserList?.data);  // Kiểm tra dữ liệu trả về từ API
+    // console.log(UserList?.data);  // Kiểm tra dữ liệu trả về từ API
 
     return (
         <div className="bg-gray-800 p-4 rounded-md">
