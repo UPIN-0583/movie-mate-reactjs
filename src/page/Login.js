@@ -34,9 +34,9 @@ const LoginPage = () => {
 
     return (
         <div className="bg-[#151515] py-16 flex flex-col items-center justify-center ">
-            <div className="max-w-4xl w-full bg-[#1E1E1E] bg-opacity-90 p-8 rounded-lg shadow-lg flex flex-col md:flex-row">
+            <div className="max-w-4xl w-full bg-[#1E1E1E] bg-opacity-90 p-8 rounded-lg shadow-lg flex flex-row">
                 {/* Hình ảnh bên trái */}
-                <div className="flex-1 hidden md:block">
+                <div className="flex-1">
                     <img
                         src={images.login}
                         alt="Login visual"
@@ -46,7 +46,7 @@ const LoginPage = () => {
 
                 {/* Form đăng nhập bên phải */}
                 <div className="flex-1 p-8 pr-0 flex flex-col justify-center">
-                    <h2 className="text-3xl font-bold text-white mb-6 text-center md:text-left">Đăng nhập</h2>
+                    <h2 className="text-3xl font-bold text-white mb-6 text-left">Đăng nhập</h2>
 
                     <form className="space-y-4">
                         {/* Tài khoản */}

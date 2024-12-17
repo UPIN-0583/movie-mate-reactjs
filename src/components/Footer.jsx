@@ -30,7 +30,7 @@ const Footer = () => {
 
         {/* Footer Links */}
         <div className="flex justify-center mb-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 text-center md:text-left">
+          <div className="grid grid-cols-4 text-left">
             <div className="max-w-xs w-32">
               <h3 className="text-gray-300 font-semibold mb-2 ">MOVIEMATE</h3>
               <ul className="space-y-1 ">

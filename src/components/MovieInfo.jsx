@@ -15,7 +15,7 @@ const MovieInfo = ({
   onWatchTrailerClick 
 }) => {
   return (
-    <div className="flex flex-col md:flex-row items-start gap-8 w-11/12 m-auto">
+    <div className="flex flex-row items-start gap-8 w-11/12 m-auto">
       {/* Poster Phim */}
       <div className="w-1/4 ms-8">
         <img
@@ -26,8 +26,8 @@ const MovieInfo = ({
       </div>
 
       {/* Thông Tin Phim */}
-      <div className="flex-1 md:flex md:justify-between md:items-start mt-10">
-        <div className="md:w-2/3 text-left">
+      <div className="flex flex-1  justify-between items-start mt-10">
+        <div className="w-2/3 text-left">
           <h1 className="text-4xl font-bold mb-4">{movie}</h1>
           
           {/* Thể loại */}
@@ -84,7 +84,7 @@ const MovieInfo = ({
         </div>
 
         {/* Chi tiết bổ sung: Nhà sản xuất, Đạo diễn, Diễn viên */}
-        <div className="mt-8 md:mt-0 w-1/3 text-left p-7 h-auto">
+        <div className="w-1/3 text-left p-7 h-auto">
           <div className="space-y-4">
             <div>
               <h3 className="font-semibold text-blue-500">Nhà sản xuất</h3>
