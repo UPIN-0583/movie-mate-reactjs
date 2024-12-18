@@ -96,9 +96,7 @@ const MovieInfo = ({
             </div>
             <div>
               <h3 className="font-semibold text-blue-500">Diễn viên</h3>
-              {cast.map((actor, index) => (
-                <p key={index}>{actor}</p>
-              ))}
+              <p>{cast}</p>
             </div>
           </div>
         </div>

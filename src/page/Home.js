@@ -4,12 +4,28 @@ import { NowShowingMovieList } from "../components/NowShowingMovieList";
 import { UpComingMovieList } from "../components/UpComingMovieList";
 import { PromotionList } from "../components/PromotionList";
 import { useMovies } from "../context/MovieContext";
+import {useGetMovies} from "../api/movie/useGetMovie";
 
 const HomePage = () => {
+
     const { movies } = useMovies();
-    const nowShowingMovies = movies.nowShowing || [];
     const upComingMovies = movies.upcoming || [];
     const promotions = movies.promotions || [];
+
+    // Lấy dữ liệu phim từ backend
+    const { data: moviesData, error, isFetching } = useGetMovies();
+
+    if (isFetching) {
+        return <div className="text-white">Đang tải dữ liệu...</div>;
+    }
+
+    if (error) {
+        return <div className="text-red-500">Lỗi: {error.message}</div>;
+    }
+
+    // Phân loại phim
+    const nowShowingMovies = moviesData.filter((movie) => movie.status === "NOW_SHOWING");
+
 
 
     return (

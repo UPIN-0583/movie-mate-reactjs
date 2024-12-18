@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import images from '../asset';
-import { Link, useNavigate } from "react-router-dom";
-import { ROUTING_SIGNUP } from "../router";
+import {Link, useLocation, useNavigate} from "react-router-dom";
+import {ROUTING_MOVIEDETAIL_NS, ROUTING_SIGNUP} from "../router";
 import { useLoginUser } from "../api/user/useLoginUser";
 
 const LoginPage = () => {
@@ -9,6 +9,12 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+
+    const location = useLocation();
+    // Lấy URL cần chuyển hướng sau khi đăng nhập từ state
+    const redirectTo = location.state?.redirectTo || "/";
+    const movieId = location.state?.movieId;
+    const poster = location.state?.poster;
 
     // Sử dụng hook useLoginUser
     const { mutate: loginUser, data, isPending, error: loginError } = useLoginUser();
@@ -27,7 +33,20 @@ const LoginPage = () => {
                     console.log("Đăng nhập thành công", data);
                     localStorage.setItem("user", JSON.stringify(data.data));
                     window.dispatchEvent(new Event("storage"));
-                    navigate("/");
+
+                    // Điều hướng đến trang trước đó nếu có
+                    if (redirectTo === ROUTING_MOVIEDETAIL_NS) {
+                        navigate(redirectTo, { state: { movieId, poster } });
+                        return;
+                    }
+
+                    if (data?.data?.user_role === "user") {
+                        navigate("/");
+                    } else if (data?.data?.user_role === "admin") {
+                        navigate("/admin");
+                    } else {
+                        setError("Không xác định được vai trò của người dùng.");
+                    }
                 },
                 onError: (err) => {
                     setError("Đăng nhập thất bại." || err.response?.data?.message);

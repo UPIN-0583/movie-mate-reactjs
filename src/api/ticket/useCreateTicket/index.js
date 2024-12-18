@@ -1,9 +1,9 @@
 import {useMutation} from "@tanstack/react-query";
-import {createMovie} from "../api-movie";
+import {createTicket} from "../api-ticket";
 
-const useCreateMovie = () => {
+const useCreateTicket = () => {
     const {mutate, data, isPending, error} = useMutation({
-        mutationFn: createMovie,
+        mutationFn: createTicket,
     });
 
     console.log('createUser data: ' + data);
@@ -16,4 +16,4 @@ const useCreateMovie = () => {
     }
 }
 
-export { useCreateMovie }
+export { useCreateTicket }
