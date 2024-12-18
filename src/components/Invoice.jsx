@@ -87,7 +87,17 @@ const Invoice = ({
         </div>
       </div>
 
-      <Link to={ROUTING_ORDER_PAYMENT}>
+      <Link to={ROUTING_ORDER_PAYMENT}
+            state={{
+              selectedSeats,
+              selectedCombos,
+              selectedCinema,
+              selectedTime,
+              selectedDate,
+              totalPrice,
+              selectedMovie,
+            }}
+      >
         <button className="bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg w-full mt-4">
           Đặt vé
         </button>

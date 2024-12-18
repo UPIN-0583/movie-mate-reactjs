@@ -2,14 +2,44 @@
 import React from "react";
 import { OrderDetails } from "../components/OrderDetails";
 import { QRCodeScanner } from "../components/QRCodeScanner";
+import {useLocation} from "react-router-dom";
 
 const OrderPayment = () => {
-  // Dữ liệu đơn hàng
+
+  const location = useLocation();
+  const {
+    selectedSeats,
+    selectedCombos,
+    selectedCinema,
+    selectedMovie,
+    selectedTime,
+    selectedDate,
+    totalPrice,
+  } = location.state || {}; // Lấy dữ liệu từ state
+
+  const numberToLetter = {
+    1: "Combo Solo",
+    2: "Combo Solo 2",
+    3: "Combo Couple",
+    4: "Combo Party",
+  };
+
+    // Xử lý selectedCombos
+  const combosDetails = Object.entries(selectedCombos)
+      .map(([combo, qty]) => {
+        const convertedQty =  `${numberToLetter[combo]}`;
+        return `${convertedQty} ${qty}`;
+      })
+      .join(", ");
+
+// Dữ liệu đơn hàng
   const orderData = {
-    supplier: "MovieMate Cinema",
+    supplier: `${selectedCinema}`,
     orderId: "78889377726",
-    orderDetails: "Mua vé xem phim Dimono: Lối thoát cuối cùng, Ghế A7 A8 E9 E10, 2 Combo Couple",
-    totalAmount: "430.000"
+    orderDetails: `Mua vé xem phim ${selectedMovie}, Ghế ${selectedSeats.join(" ")}, ${
+        combosDetails ? `Combo: ${combosDetails}, ` : ""
+    }Tại rạp ${selectedCinema}, Thời gian ${selectedTime}, Ngày ${selectedDate}`,
+    totalAmount: `${totalPrice} VNĐ`,
   };
 
   return (
@@ -29,7 +59,7 @@ const OrderPayment = () => {
           {/* Quét mã QR */}
           <QRCodeScanner />
         </div>
-      </div>    
+      </div>
     </div>
   );
 };
