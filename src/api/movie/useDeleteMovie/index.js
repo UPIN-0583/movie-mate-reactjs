@@ -1,8 +1,8 @@
 import {useMutation, useQueryClient} from "@tanstack/react-query";
-import {deleteUser} from "../api-user";
-import {QK_GET_USER} from "../useGetUser";
+import {deleteMovie} from "../api-movie";
+import {QK_GET_MOVIE} from "../useGetMovie";
 
-const useDeleteUser = () => {
+const useDeleteMovie = () => {
 
     const queryClient = useQueryClient();
 
@@ -13,9 +13,9 @@ const useDeleteUser = () => {
         isPending,
         mutate
     } = useMutation({
-        mutationFn: deleteUser,
+        mutationFn: deleteMovie,
         onSuccess: () => {
-            queryClient.invalidateQueries({queryKey: [QK_GET_USER]});
+            queryClient.invalidateQueries({queryKey: [QK_GET_MOVIE]});
         },
         onError: (error) => {
             console.log('api delete user' + error);
@@ -31,4 +31,4 @@ const useDeleteUser = () => {
 
 }
 
-export { useDeleteUser }
+export { useDeleteMovie }

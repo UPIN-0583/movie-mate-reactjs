@@ -1,39 +1,44 @@
-
 import React, { useState } from 'react';
 import images from '../asset';
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTING_SIGNUP } from "../router";
+import { useLoginUser } from "../api/user/useLoginUser";
 
 const LoginPage = () => {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState(''); // Dùng username thay vì email, để có thể kiểm tra cả email và số điện thoại
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    // Giả lập dữ liệu người dùng
-    const mockUserData = {
-        email: 'Nguyen@gmail.com',
-        password: '123456',
-        name: 'Nguyên',
-    };
+    // Sử dụng hook useLoginUser
+    const { mutate: loginUser, data, isPending, error: loginError } = useLoginUser();
 
     const handleLogin = (e) => {
         e.preventDefault();
 
-        // Kiểm tra thông tin đăng nhập (giả lập)
-        if (email === mockUserData.email && password === mockUserData.password) {
-            // Lưu thông tin người dùng vào localStorage
-            localStorage.setItem('user', JSON.stringify(mockUserData));
-            // Phát sự kiện storage
-            window.dispatchEvent(new Event("storage"));
-            navigate('/'); // Chuyển hướng về trang chủ sau khi đăng nhập thành công
-        } else {
-            setError('Vui lòng kiểm tra lại email và mật khẩu.');
-        }
+        // Xóa lỗi trước đó
+        setError("");
+
+        // Gọi hàm login với dữ liệu chuẩn
+        loginUser(
+            { email_or_phone: username, password },
+            {
+                onSuccess: (data) => {
+                    console.log("Đăng nhập thành công", data);
+                    localStorage.setItem("user", JSON.stringify(data.data));
+                    window.dispatchEvent(new Event("storage"));
+                    navigate("/");
+                },
+                onError: (err) => {
+                    setError("Đăng nhập thất bại." || err.response?.data?.message);
+                    console.error("Lỗi đăng nhập:", err.response?.data);
+                },
+            }
+        );
     };
 
     return (
-        <div className="bg-[#151515] py-16 flex flex-col items-center justify-center ">
+        <div className="bg-[#151515] py-16 flex flex-col items-center justify-center">
             <div className="max-w-4xl w-full bg-[#1E1E1E] bg-opacity-90 p-8 rounded-lg shadow-lg flex flex-row">
                 {/* Hình ảnh bên trái */}
                 <div className="flex-1">
@@ -53,8 +58,8 @@ const LoginPage = () => {
                         <input
                             type="text"
                             placeholder="Nhập email hoặc số điện thoại"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                             className="w-full px-4 py-2 rounded bg-gray-700 bg-opacity-50 text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
                         />
 
@@ -79,6 +84,7 @@ const LoginPage = () => {
                             <a href="#" className="text-yellow-400 hover:underline">Quên mật khẩu?</a>
                         </div>
 
+                        {/* Hiển thị thông báo lỗi */}
                         <p className="text-red-500">{error}</p>
 
                         {/* Nút Đăng nhập */}
@@ -86,9 +92,9 @@ const LoginPage = () => {
                             type="submit"
                             className="w-full py-2 bg-yellow-500 text-gray-900 font-semibold rounded-lg hover:bg-yellow-600 transition duration-300"
                             onClick={handleLogin}
+                            disabled={isPending} // Disable nút khi đang xử lý
                         >
-
-                            Đăng nhập
+                            {isPending ? 'Đang xác thực...' : 'Đăng nhập'}
                         </button>
 
                         {/* Đăng nhập với Google */}

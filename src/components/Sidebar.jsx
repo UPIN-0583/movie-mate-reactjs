@@ -11,7 +11,7 @@ import {
     DocumentTextIcon,
     Cog6ToothIcon
 } from '@heroicons/react/24/outline';
-import {ROUTING_DASHBOARD, ROUTING_USER_MANAGEMENT} from "../router";
+import {ROUTING_DASHBOARD, ROUTING_MOVIE_MANAGEMENT, ROUTING_USER_MANAGEMENT} from "../router";
 
 // Một item sidebar có thể được trừu tượng hóa:
 const SidebarItem = ({ icon: Icon, label, to }) => (
@@ -28,7 +28,7 @@ const Sidebar = () => {
             <nav className="flex-1 px-2 space-y-2 mt-4">
                 <SidebarItem icon={HomeIcon} label="Dashboard" to={ROUTING_DASHBOARD} />
                 <SidebarItem icon={UsersIcon} label="Users" to={ROUTING_USER_MANAGEMENT} />
-                <SidebarItem icon={FilmIcon} label="Movies" to="/movies" />  {/* Đổi tên thành Movies */}
+                <SidebarItem icon={FilmIcon} label="Movies" to={ROUTING_MOVIE_MANAGEMENT} />  {/* Đổi tên thành Movies */}
                 <SidebarItem icon={UserGroupIcon} label="Rooms" to="/rooms" /> {/* Đổi tên thành Rooms */}
                 <SidebarItem icon={TicketIcon} label="Tickets" to="/tickets" /> {/* Đổi tên thành Tickets */}
                 <SidebarItem icon={ShoppingCartIcon} label="Orders" to="/orders" /> {/* Đổi tên thành Orders */}

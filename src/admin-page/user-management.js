@@ -1,16 +1,29 @@
-import {useGetUsers} from "../api/user/useGetUser";
-import {Link} from "react-router-dom";
-import {ROUTING_USER_CREATE} from "../router";
+import { useGetUsers } from "../api/user/useGetUser";
+import { Link } from "react-router-dom";
+import { ROUTING_USER_CREATE } from "../router";
+import { useDeleteUser } from "../api/user/useDeleteUser";
 
 const UserManagement = () => {
-    // Lấy danh sách người dùng từ hook
-    const { data: UserList, isFetching, error } = useGetUsers();
+    const { data: UserList, isFetching, error } = useGetUsers(); // Lấy danh sách người dùng
+    const { mutate: deleteUser, isPending, error: deleteError } = useDeleteUser(); // Hook xóa người dùng
 
-    // Kiểm tra lỗi và hiển thị thông báo nếu có lỗi
+    const handleDelete = (userId) => {
+        if (window.confirm('Are you sure you want to delete this user?')) {
+            deleteUser(userId, {
+                onSuccess: () => {
+                    // Sau khi xóa thành công, tự động cập nhật lại danh sách người dùng
+                    console.log(`User ${userId} deleted successfully`);
+                },
+                onError: (err) => {
+                    console.error('Error deleting user:', err);
+                }
+            });
+        }
+    };
+
     if (error) {
         return <div>Error: {error.message}</div>;
     }
-    // console.log(UserList?.data);  // Kiểm tra dữ liệu trả về từ API
 
     return (
         <div className="bg-gray-800 p-4 rounded-md">
@@ -38,7 +51,7 @@ const UserManagement = () => {
                     <tbody>
                     {isFetching ? (
                         <tr>
-                            <td colSpan="10" className="py-2 text-center">
+                            <td colSpan="9" className="py-2 text-center">
                                 Loading...
                             </td>
                         </tr>
@@ -54,8 +67,12 @@ const UserManagement = () => {
                                 <td className="py-2 px-4">{user.user_role}</td>
                                 <td className="py-2 px-4">{user.user_status}</td>
                                 <td className="py-2 px-4">
-                                    <button className="text-red-500 hover:text-white transition-colors">
-                                        🗑
+                                    <button
+                                        className="text-red-500 hover:text-white transition-colors"
+                                        onClick={() => handleDelete(user.id)}
+                                        disabled={isPending} // Disable khi đang xóa
+                                    >
+                                        {isPending ? "Deleting..." : "🗑"}
                                     </button>
                                 </td>
                             </tr>

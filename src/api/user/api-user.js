@@ -25,6 +25,17 @@ export const getUserById = async (id) => {
     }
 }
 
+export const getUserByNameOrEmail = async (textkey) => {
+    try {
+        const res = await axiosinstance.get(`/users/search/${textkey}`);
+        console.log("API response:", res.data);
+        return res.data;
+    } catch(err) {
+        console.log('errr', err);
+        throw err;
+    }
+}
+
 export const createUser = async ({ name, email, phone, birthday, gender, password }) => {
     try {
         const newData = await axiosinstance.post('/users', {
@@ -41,7 +52,22 @@ export const createUser = async ({ name, email, phone, birthday, gender, passwor
         console.log('errr', err);
         throw err;
     }
+}
 
+export const loginUser = async ({ email_or_phone, password }) => {
+    try {
+        const newData = await axiosinstance.post('/users/login', {
+
+            email_or_phone,
+                password
+
+        })
+        console.log('data: ',newData);
+        return newData.data;
+    } catch(err) {
+        console.log('errr', err);
+        throw err;
+    }
 }
 
 export const updateUser = async ({id, name, description, price}) => {
