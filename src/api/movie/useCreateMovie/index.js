@@ -6,7 +6,7 @@ const useCreateMovie = () => {
         mutationFn: createMovie,
     });
 
-    console.log('createUser data: ' + data);
+    console.log('createMovie data: ' + data);
 
     return {
         mutate,

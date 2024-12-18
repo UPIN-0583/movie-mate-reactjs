@@ -1,19 +1,19 @@
 import {useMutation} from "@tanstack/react-query";
-import {createTicket} from "../api-order";
+import {createOrder} from "../api/order";
 
-const useCreateTicket = () => {
-    const {mutate, data, isPending, error} = useMutation({
-        mutationFn: createTicket,
+const useCreateOrder = () => {
+    const {mutate, data, isLoading, error} = useMutation({
+        mutationFn: createOrder,
     });
 
-    console.log('createUser data: ' + data);
+    console.log('createOrder data: ' + data);
 
     return {
         mutate,
         data,
         error,
-        isPending
+        isLoading
     }
 }
 
-export { useCreateTicket }
+export { useCreateOrder }

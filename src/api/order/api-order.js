@@ -25,16 +25,10 @@ export const getOrderById = async (id) => {
     }
 }
 
-export const createOrder = async ({ show_time,
-                                       order_id,
-                                       movie_id,
-                                       seat_id }) => {
+export const createOrder = async ({ order_code, order_date, total_amount, user_id }) => {
     try {
         const newData = await axiosinstance.post('/orders', {
-            show_time,
-            order_id,
-            movie_id,
-            seat_id
+            order_code, order_date, total_amount, user_id
         })
         console.log('data: ',newData);
         return newData.data;

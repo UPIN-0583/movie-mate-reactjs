@@ -41,6 +41,7 @@ import Dashboard from "../admin-page/dashboard";
 import {UserManagement} from "../admin-page/user-management";
 import {UserCreate} from "../admin-page/user-create";
 import {MovieManagement} from "../admin-page/movie-management";
+import { OrderManagement } from "../admin-page/order-management.js";
 
 const ScrollToTop = () => {
     const location = useLocation();
@@ -101,6 +102,7 @@ const WebRouter = () => {
                     <Route path={ROUTING_USER_MANAGEMENT} element={<UserManagement />} />
                     <Route path={ROUTING_USER_CREATE} element={<UserCreate />} />
                     <Route path={ROUTING_MOVIE_MANAGEMENT} element={<MovieManagement />} />
+                    <Route path={ROUTING_ORDER_MANAGEMENT} element={<OrderManagement />} />
                 </Route>
             </Routes>
         </BrowserRouter>

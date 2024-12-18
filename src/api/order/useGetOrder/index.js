@@ -1,17 +1,17 @@
 import {useQuery} from "@tanstack/react-query";
-import {getTicket} from "../api-order";
+import {getOrder} from "../api-order";
 
-export const QK_GET_TICKET = "GET_TICKETS";
+export const QK_GET_ORDER = "GET_ORDERS";
 
-const useGetTickets = () => {
+const useGetOrder = () => {
 
     const {data, error, isFetching } = useQuery({
-        queryKey: [QK_GET_TICKET],
+        queryKey: [QK_GET_ORDER],
         queryFn: () => {
-            return getTicket()
+            return getOrder()
         } })
 
-    console.log("Movie data:", data);
+    console.log("Order data:", data);
 
     return {
         data,
@@ -20,4 +20,4 @@ const useGetTickets = () => {
     }
 }
 
-export { useGetTickets }
+export { useGetOrder }
