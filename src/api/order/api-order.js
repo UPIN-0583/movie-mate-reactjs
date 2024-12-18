@@ -30,7 +30,7 @@ export const createOrder = async ({ order_code, order_date, total_amount, user_i
         const newData = await axiosinstance.post('/orders', {
             order_code, order_date, total_amount, user_id
         })
-        console.log('data: ',newData);
+        console.log('create order data: ',newData);
         return newData.data;
     } catch(err) {
         console.log('errr', err);

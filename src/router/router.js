@@ -42,6 +42,7 @@ import {UserManagement} from "../admin-page/user-management";
 import {UserCreate} from "../admin-page/user-create";
 import {MovieManagement} from "../admin-page/movie-management";
 import { OrderManagement } from "../admin-page/order-management.js";
+import {ToastContainer} from "react-toastify";
 
 const ScrollToTop = () => {
     const location = useLocation();
@@ -105,6 +106,9 @@ const WebRouter = () => {
                     <Route path={ROUTING_ORDER_MANAGEMENT} element={<OrderManagement />} />
                 </Route>
             </Routes>
+
+            <ToastContainer/>
+
         </BrowserRouter>
     )
 

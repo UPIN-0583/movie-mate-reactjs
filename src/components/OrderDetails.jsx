@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {ROUTING_TICKET_HISTORY} from "../router"
+import {ROUTING_HOME, ROUTING_TICKET_HISTORY} from "../router"
+import {toast} from "react-toastify";
 
 const OrderDetails = ({ orderData }) => {
   // Lấy các dữ liệu từ props (orderData)
@@ -25,7 +26,9 @@ const OrderDetails = ({ orderData }) => {
         <p>{totalAmount} đ</p>
       </div>
       <Link
-      to = {ROUTING_TICKET_HISTORY}>
+        to = {ROUTING_HOME}
+        onClick={() => toast.success("Đặt vé thành công!")}
+      >
         <button className="mt-4 bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg w-full ">
           Xác nhận đã thanh toán
         </button>

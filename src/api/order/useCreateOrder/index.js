@@ -1,8 +1,8 @@
 import {useMutation} from "@tanstack/react-query";
-import {createOrder} from "../api/order";
+import {createOrder} from "../api-order";
 
 const useCreateOrder = () => {
-    const {mutate, data, isLoading, error} = useMutation({
+    const {mutate, data, isPending, error} = useMutation({
         mutationFn: createOrder,
     });
 
@@ -12,7 +12,7 @@ const useCreateOrder = () => {
         mutate,
         data,
         error,
-        isLoading
+        isPending
     }
 }
 
