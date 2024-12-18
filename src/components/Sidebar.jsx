@@ -23,15 +23,20 @@ const SidebarItem = ({ icon: Icon, label, to }) => (
 
 const Sidebar = () => {
     return (
-        <div className="bg-gray-900 h-screen w-64 flex flex-col">
+        <div className="bg-gray-900 h-full w-64 flex flex-col">
+            {/* Header */}
             <div className="p-4 text-white font-bold text-2xl">DashWind</div>
-            <nav className="flex-1 px-2 space-y-2 mt-4">
-                <SidebarItem icon={HomeIcon} label="Dashboard" to={ROUTING_DASHBOARD} />
-                <SidebarItem icon={UsersIcon} label="Users" to={ROUTING_USER_MANAGEMENT} />
-                <SidebarItem icon={FilmIcon} label="Movies" to={ROUTING_MOVIE_MANAGEMENT} />  {/* Đổi tên thành Movies */}
-                <SidebarItem icon={UserGroupIcon} label="Rooms" to="/rooms" /> {/* Đổi tên thành Rooms */}
-                <SidebarItem icon={TicketIcon} label="Tickets" to="/tickets" /> {/* Đổi tên thành Tickets */}
-                <SidebarItem icon={ShoppingCartIcon} label="Orders" to="/orders" /> {/* Đổi tên thành Orders */}
+
+            {/* Nội dung sidebar */}
+            <nav className="flex-1 px-2 mt-4 h-full flex flex-col justify-between">
+                <div>
+                    <SidebarItem icon={HomeIcon} label="Dashboard" to={ROUTING_DASHBOARD} />
+                    <SidebarItem icon={UsersIcon} label="Users" to={ROUTING_USER_MANAGEMENT} />
+                    <SidebarItem icon={FilmIcon} label="Movies" to={ROUTING_MOVIE_MANAGEMENT} />
+                    <SidebarItem icon={UserGroupIcon} label="Rooms" to="/rooms" />
+                    <SidebarItem icon={ShoppingCartIcon} label="Orders" to="/orders" />
+                </div>
+                
                 <div className="mt-4">
                     <p className="text-gray-400 uppercase text-xs px-4 mb-2">Pages</p>
                     <SidebarItem icon={DocumentTextIcon} label="Documentation" to="/documentation" />
@@ -41,5 +46,6 @@ const Sidebar = () => {
         </div>
     );
 };
+
 
 export { Sidebar };

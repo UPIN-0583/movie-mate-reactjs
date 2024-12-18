@@ -10,16 +10,23 @@ const HomePage = () => {
     const nowShowingMovies = movies.nowShowing || [];
     const upComingMovies = movies.upcoming || [];
     const promotions = movies.promotions || [];
+    //const banners = movies.banners || [];
+
+    const movie = movies.movie || [];
+    const days = movies.days || [];
+    const cinemas = movies.cinemas || [];
+    const times = movies.times || [];
+  
 
 
     return (
         <div className="bg-[#151515]">
             <div className="w-11/12 m-auto pt-16">
-                <Banner />
+                <Banner/>
             </div>
 
             <div className="w-11/12 m-auto pt-10">
-                <Navigate />
+                <Navigate  movie = {movie} days = {days} cinemas = {cinemas} times ={times} />
             </div>
 
             <div className="w-11/12 m-auto justify-center">

@@ -30,7 +30,7 @@ const UserCreate = () => {
     };
 
     return (
-        <div className="bg-gray-800 p-4 rounded-md">
+        <div className="bg-gray-800 p-4 rounded-md w-1/2 m-auto">
             <h2 className="text-gray-200 text-xl font-semibold mb-4">Add New User</h2>
 
             {error && (
@@ -39,7 +39,7 @@ const UserCreate = () => {
                 </div>
             )}
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className='text-left mx-4'  onSubmit={handleSubmit(onSubmit)}>
                 {/* Name */}
                 <div className="mb-4">
                     <label htmlFor="name" className="text-gray-200">Name</label>
@@ -151,7 +151,7 @@ const UserCreate = () => {
                 <button
                     type="submit"
                     disabled={isPending}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-md"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-md mt-8"
                 >
                     {isPending ? 'Saving...' : 'Add User'}
                 </button>

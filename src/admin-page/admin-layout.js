@@ -6,13 +6,15 @@ import React from "react";
 const AdminLayout = () => {
 
     return (
-        <div className="flex  bg-gray-900">
+        <div className="flex h-screen bg-gray-900">
             <Sidebar/>
             <div className="flex flex-col flex-1 ">
                 <div className="flex-1 bg-gray-900 text-gray-200 p-6 ">
                     <AdminHeader/>
                     <h1 className="text-3xl font-semibold mb-6">Leads</h1>
-                    <Outlet/>
+                    <div className="w-full">
+                        <Outlet/>
+                    </div>
                 </div>
             </div>
         </div>
