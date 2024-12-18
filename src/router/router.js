@@ -37,7 +37,7 @@ import { TicketHistory } from "../page/TicketHistory.js";
 import { ContactForm } from "../page/ContactForm.js";
 import { OrderPayment } from "../page/OrderPayment.js";
 import {AdminLayout} from "../admin-page/admin-layout";
-import {Dashboard} from "../admin-page/dashboard";
+import Dashboard from "../admin-page/dashboard";
 import {UserManagement} from "../admin-page/user-management";
 import {UserCreate} from "../admin-page/user-create";
 import {MovieManagement} from "../admin-page/movie-management";
@@ -97,7 +97,7 @@ const WebRouter = () => {
 
                 </Route>
                 <Route path={ROUTING_ADMIN} element={<AdminLayout />}>
-                    <Route path={ROUTING_DASHBOARD} element={<Dashboard />} />
+                <Route path="/admin/dashboard" element={<Dashboard />} />
                     <Route path={ROUTING_USER_MANAGEMENT} element={<UserManagement />} />
                     <Route path={ROUTING_USER_CREATE} element={<UserCreate />} />
                     <Route path={ROUTING_MOVIE_MANAGEMENT} element={<MovieManagement />} />
