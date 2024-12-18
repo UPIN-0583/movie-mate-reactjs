@@ -5,13 +5,11 @@ import {
     HomeIcon,
     UsersIcon,
     FilmIcon,      // Icon cho Movie
-    UserGroupIcon, // Icon cho Room
-    TicketIcon,    // Icon cho Ticket
     ShoppingCartIcon, // Icon cho Order
     DocumentTextIcon,
     Cog6ToothIcon
 } from '@heroicons/react/24/outline';
-import {ROUTING_DASHBOARD, ROUTING_MOVIE_MANAGEMENT, ROUTING_USER_MANAGEMENT} from "../router";
+import {ROUTING_DASHBOARD, ROUTING_MOVIE_MANAGEMENT, ROUTING_USER_MANAGEMENT, ROUTING_ORDER_MANAGEMENT} from "../router";
 
 // Một item sidebar có thể được trừu tượng hóa:
 const SidebarItem = ({ icon: Icon, label, to }) => (
@@ -33,8 +31,7 @@ const Sidebar = () => {
                     <SidebarItem icon={HomeIcon} label="Dashboard" to={ROUTING_DASHBOARD} />
                     <SidebarItem icon={UsersIcon} label="Users" to={ROUTING_USER_MANAGEMENT} />
                     <SidebarItem icon={FilmIcon} label="Movies" to={ROUTING_MOVIE_MANAGEMENT} />
-                    <SidebarItem icon={UserGroupIcon} label="Rooms" to="/rooms" />
-                    <SidebarItem icon={ShoppingCartIcon} label="Orders" to="/orders" />
+                    <SidebarItem icon={ShoppingCartIcon} label="Orders" to={ROUTING_ORDER_MANAGEMENT} />
                 </div>
                 
                 <div className="mt-4">
