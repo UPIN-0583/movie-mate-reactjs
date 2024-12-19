@@ -23,7 +23,7 @@ const OrderDetails = ({ orderData }) => {
       <hr className="my-4 border-gray-600" />
       <div className="flex justify-between items-center text-lg font-semibold text-white px-2">
         <p className="text-yellow-400">Thành tiền:</p>
-        <p>{totalAmount} đ</p>
+        <p>{totalAmount}</p>
       </div>
       <Link
         to = {ROUTING_HOME}

@@ -1,12 +1,31 @@
 import React from "react";
 import { TicketCard } from "../components/TicketCard";
 import { useMovies } from "../context/MovieContext";
+import {useGetOrder} from "../api/order/useGetOrder";
 
 const TicketHistory = () => {
   const { movies } = useMovies();
 
+  const { data: orderData, error, isFetching } = useGetOrder();
+
+  if (isFetching) {
+    return (
+        <div className="bg-[#151515] text-white min-h-screen flex items-center justify-center">
+          <p>Đang tải dữ liệu...</p>
+        </div>
+    );
+  }
+
+  if (error) {
+    return (
+        <div className="bg-[#151515] text-white min-h-screen flex items-center justify-center">
+          <p>Đã xảy ra lỗi khi tải dữ liệu: {error.message}</p>
+        </div>
+    );
+  }
+
   const ticketDetails = movies.ticketDetails || [];
-  const transactions = movies.transactions || [];
+  const transactions = orderData || [];
 
   return (
     <div className="bg-[#151515] text-white min-h-screen py-10">
@@ -31,21 +50,21 @@ const TicketHistory = () => {
                 <tr>
                   <th className="px-4 py-2 text-yellow-500">Ngày Giao Dịch</th>
                   <th className="px-4 py-2 text-yellow-500">Mã Đơn Hàng</th>
-                  <th className="px-4 py-2 text-yellow-500">Tên Phim</th>
+                  {/*<th className="px-4 py-2 text-yellow-500">Tên Phim</th>*/}
                   <th className="px-4 py-2 text-yellow-500">Số Tiền</th>
-                  <th className="px-4 py-2 text-yellow-500">Chi Tiết</th>
+                  {/*<th className="px-4 py-2 text-yellow-500">Chi Tiết</th>*/}
                 </tr>
               </thead>
               <tbody>
                 {transactions.map((transaction, index) => (
                   <tr key={index}>
-                    <td className="px-4 py-2">{transaction.date}</td>
-                    <td className="px-4 py-2">{transaction.orderId}</td>
-                    <td className="px-4 py-2">{transaction.movieName}</td>
-                    <td className="px-4 py-2">{transaction.amount}</td>
-                    <td className="px-4 py-2 text-yellow-500 hover:underline">
-                      <a href="#">Chi tiết</a>
-                    </td>
+                    <td className="px-4 py-2">{transaction.order_date}</td>
+                    <td className="px-4 py-2">{transaction.order_code}</td>
+                    {/*<td className="px-4 py-2">{transaction.movieName}</td>*/}
+                    <td className="px-4 py-2">{transaction.total_amount} VNĐ</td>
+                    {/*<td className="px-4 py-2 text-yellow-500 hover:underline">*/}
+                    {/*  <a href="#">Chi tiết</a>*/}
+                    {/*</td>*/}
                   </tr>
                 ))}
               </tbody>

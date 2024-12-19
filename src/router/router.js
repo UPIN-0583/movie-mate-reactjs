@@ -20,7 +20,7 @@ import {
     ROUTING_MOVIE_MANAGEMENT,
     ROUTING_ROOM_MANAGEMENT,
     ROUTING_TICKET_MANAGEMENT,
-    ROUTING_ORDER_MANAGEMENT, ROUTING_DASHBOARD, ROUTING_USER_CREATE
+    ROUTING_ORDER_MANAGEMENT, ROUTING_DASHBOARD, ROUTING_USER_CREATE, ROUTING_MOVIE_CREATE
 } from "./path";
 import { HomePage } from "../page/Home.js";
 import { Layout } from "../page/layout.js";
@@ -43,6 +43,7 @@ import {UserCreate} from "../admin-page/user-create";
 import {MovieManagement} from "../admin-page/movie-management";
 import { OrderManagement } from "../admin-page/order-management.js";
 import {ToastContainer} from "react-toastify";
+import {MovieCreate} from "../admin-page/movie-create";
 
 const ScrollToTop = () => {
     const location = useLocation();
@@ -102,6 +103,7 @@ const WebRouter = () => {
                 <Route path="/admin/dashboard" element={<Dashboard />} />
                     <Route path={ROUTING_USER_MANAGEMENT} element={<UserManagement />} />
                     <Route path={ROUTING_USER_CREATE} element={<UserCreate />} />
+                    <Route path={ROUTING_MOVIE_CREATE} element={<MovieCreate />} />
                     <Route path={ROUTING_MOVIE_MANAGEMENT} element={<MovieManagement />} />
                     <Route path={ROUTING_ORDER_MANAGEMENT} element={<OrderManagement />} />
                 </Route>

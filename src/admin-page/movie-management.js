@@ -1,5 +1,7 @@
 import { useGetMovies } from "../api/movie/useGetMovie";
 import { useDeleteMovie } from "../api/movie/useDeleteMovie";
+import {ROUTING_MOVIE_CREATE} from "../router";
+import {Link} from "react-router-dom";
 
 
 const MovieManagement = () => {
@@ -33,6 +35,9 @@ const MovieManagement = () => {
             {/* Header Section */}
             <div className="flex justify-between items-center mb-4">
                 <h2 className="text-blue-500 text-xl font-semibold">Movie Management</h2>
+                <Link to={ROUTING_MOVIE_CREATE} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+                    Add New Movie
+                </Link>
             </div>
 
             {/* Movie Table */}
