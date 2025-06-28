@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { NowShowingMovieCard } from "./NowShowingMovieCard";
 import { useNavigate } from "react-router-dom";
-import { ROUTING_MOVIELIST_NS } from "../router";
-
-// Tạo danh sách ảnh mặc định
-const defaultImages = Array.from({ length: 16 }, (_, index) =>
-    require(`../asset/NowShowingMovie${index}.jpg`)
-);
+import { ROUTING_MOVIELIST_NS } from "../router/path";
 
 const NowShowingMovieList = ({ movies }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -25,14 +20,14 @@ const NowShowingMovieList = ({ movies }) => {
   // Xử lý khi bấm nút "trái"
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-        prevIndex > 0 ? prevIndex - 1 : movieGroups.length - 1
+      prevIndex > 0 ? prevIndex - 1 : movieGroups.length - 1
     );
   };
 
   // Xử lý khi bấm nút "phải"
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
-        prevIndex < movieGroups.length - 1 ? prevIndex + 1 : 0
+      prevIndex < movieGroups.length - 1 ? prevIndex + 1 : 0
     );
   };
 
@@ -44,67 +39,59 @@ const NowShowingMovieList = ({ movies }) => {
   };
 
   return (
-      <div className="bg-transparent py-8">
-        <div className="text-center font-bold text-white text-2xl mb-6">
-          PHIM ĐANG CHIẾU
-        </div>
-        <div className="relative flex items-center justify-center mb-6">
-          {/* Nút mũi tên trái */}
-          <button
-              onClick={handlePrev}
-              className="left-1 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
-          >
-            {"<"}
-          </button>
-
-          {/* Danh sách slide */}
-          <div className="w-full overflow-hidden relative">
-            <div
-                className="flex transition-transform duration-500"
-                style={{
-                  transform: `translateX(-${
-                      currentIndex * (100 / movieGroups.length)
-                  }%)`,
-                  width: `${movieGroups.length * 100}%`, // Đảm bảo chiều rộng tổng
-                }}
-            >
-              {movieGroups.map((group, groupIndex) => (
-                  <div key={groupIndex} className="flex w-full justify-around mx-2">
-                    {group.map((movie, index) => {
-                      // Tính chỉ số ảnh tương ứng
-                      const imageIndex = (groupIndex * 4 + index) % defaultImages.length;
-                      return (
-                          <NowShowingMovieCard
-                              key={movie.id}
-                              movie={movie}
-                              image={defaultImages[imageIndex]} // Gắn ảnh theo chỉ số
-                          />
-                      );
-                    })}
-                  </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Nút mũi tên phải */}
-          <button
-              onClick={handleNext}
-              className="right-1 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
-          >
-            {">"}
-          </button>
-        </div>
-
-        {/* Nút Xem thêm */}
-        <div className="text-center mt-4">
-          <button
-              className="w-[200px] bg-[#9CB2F5] text-black font-bold py-2 px-6 rounded-sm hover:bg-blue-600 transition"
-              onClick={handleSeeMore}
-          >
-            XEM THÊM
-          </button>
-        </div>
+    <div className="bg-transparent py-8">
+      <div className="text-center font-bold text-white text-2xl mb-6">
+        PHIM ĐANG CHIẾU
       </div>
+      <div className="relative flex items-center justify-center mb-6">
+        {/* Nút mũi tên trái */}
+        <button
+          onClick={handlePrev}
+          className="left-1 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
+        >
+          {"<"}
+        </button>
+
+        {/* Danh sách slide */}
+        <div className="w-full overflow-hidden relative">
+          <div
+            className="flex transition-transform duration-500"
+            style={{
+              transform: `translateX(-${
+                currentIndex * (100 / movieGroups.length)
+              }%)`,
+              width: `${movieGroups.length * 100}%`, // Đảm bảo chiều rộng tổng
+            }}
+          >
+            {movieGroups.map((group, index) => (
+              <div key={index} className="flex w-full  justify-around mx-2">
+                {group.map((movie, idx) => (
+                  <NowShowingMovieCard movie={movie} />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Nút mũi tên phải */}
+        <button
+          onClick={handleNext}
+          className="right-1 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
+        >
+          {">"}
+        </button>
+      </div>
+
+      {/* Nút Xem thêm */}
+      <div className="text-center mt-4">
+        <button
+          className="w-[200px] bg-[#9CB2F5] text-black font-bold py-2 px-6 rounded-sm hover:bg-blue-600 transition"
+          onClick={handleSeeMore}
+        >
+          XEM THÊM
+        </button>
+      </div>
+    </div>
   );
 };
 

@@ -3,9 +3,8 @@ import { useMovies } from "../context/MovieContext";
 import images from "../asset";
 
 const Banner = () => {
-
-  const {movies} = useMovies();
-  const banner = movies.banners || [];
+  const { movies } = useMovies(); // movies là một đối tượng
+  const banner = movies.banners || []; // Lấy mảng banners từ movies
 
   const [selectedMovie, setSelectedMovie] = useState(banner[0]);
 

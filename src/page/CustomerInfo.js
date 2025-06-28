@@ -13,7 +13,7 @@ const CustomerInfo = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Thông tin khách hàng */}
           <div className="bg-[#1E1E1E] p-6 rounded-xl shadow ">
             <img

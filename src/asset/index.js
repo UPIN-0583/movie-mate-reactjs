@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import NowShowingMovie from './NowShowingMovie0.jpg';
+import NowShowingMovie from './NowShowingMovie.jpg';
 import NowShowingMovie1 from './NowShowingMovie1.jpg';
 import NowShowingMovie2 from './NowShowingMovie2.jpg';
 import NowShowingMovie3 from './NowShowingMovie3.jpg';
@@ -12,7 +12,7 @@ import NowShowingMovie9 from './NowShowingMovie9.jpg';
 import NowShowingMovie10 from './NowShowingMovie10.jpg';
 import NowShowingMovie11 from './NowShowingMovie11.jpg';
 import NowShowingMovie12 from './NowShowingMovie12.jpg';
-import NowShowingMovie13 from './NowShowingMovie13.jpg';
+import NowShowingMovie13 from './NowShowingMovie13.png';
 import NowShowingMovie14 from './NowShowingMovie14.jpg';
 import NowShowingMovie15 from './NowShowingMovie15.jpg';
 

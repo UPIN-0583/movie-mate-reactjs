@@ -1,12 +1,9 @@
 import React from 'react';
 import { ROUTING_LOGIN } from "../router";
-import {Link, useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {useCreateUser} from "../api/user/useCreateUser";
-import {toast} from "react-toastify";
 
 const SignUpPage = () => {
-
     const {
         register,
         watch,
@@ -14,39 +11,10 @@ const SignUpPage = () => {
         formState: { errors }
     } = useForm({
         defaultValues: {
-            gender: "male",
-            termsAccepted: false
+            gender: "male",         // Đặt giá trị mặc định là "male"
+            termsAccepted: false    // Đặt giá trị mặc định là false
         }
     });
-
-    const navigate = useNavigate();
-
-    const { mutate: createUser, isPending, error } = useCreateUser();
-
-    const onSubmit = (data) => {
-        createUser(
-            {
-                name: data.name,
-                email: data.email,
-                phone: data.phone,
-                birthday: data.birthday,
-                gender: data.gender,
-                password: data.password
-            },
-            {
-                onSuccess: (response) => {
-                    console.log("User created successfully:", response);
-                    navigate(ROUTING_LOGIN)
-                    toast.success("Đăng ký thành công! Hãy đăng nhập.");
-
-                },
-                onError: (err) => {
-                    console.error("Error creating user:", err);
-                    toast.error("Đăng ký thất bại. Vui lòng thử lại.");
-                }
-            }
-        );
-    };
 
 
 
@@ -61,7 +29,7 @@ const SignUpPage = () => {
             <div className="bg-[#151515] relative z-10 bg-opacity-75 backdrop-blur-sm border border-gray-700 p-8 rounded-lg shadow-lg max-w-md w-full mx-4 my-24">
                 <h2 className="text-2xl font-bold text-center text-white mb-6">Đăng ký</h2>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form className="space-y-4">
                     {/* Họ và tên */}
                     <input
                         {...register("name", { required: "Vui lòng nhập họ và tên" })}
@@ -181,10 +149,9 @@ const SignUpPage = () => {
                     {/* Nút Đăng ký */}
                     <button
                         type="submit"
-                        disabled={isPending}
                         className="w-full py-2 bg-yellow-500 text-gray-900 font-semibold rounded-lg hover:bg-yellow-600 transition duration-300"
                     >
-                        {isPending ? "Đang xử lý..." : "Đăng ký"}
+                        Đăng ký
                     </button>
 
                     {/* Đường dẫn đến đăng nhập */}
@@ -201,5 +168,3 @@ const SignUpPage = () => {
 };
 
 export { SignUpPage };
-
-

@@ -8,7 +8,7 @@ import {
   ROUTING_MOVIELIST_UC,
   ROUTING_TICKET_HISTORY,
   ROUTING_INFO
-} from "../router";
+} from "../router/path";
 import images from "../asset";
 import { useState, useEffect } from "react";
 
@@ -41,9 +41,9 @@ const Header = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.clear(); // Xóa toàn bộ dữ liệu trong localStorage
-    setIsLoggedIn(false); // Cập nhật trạng thái đăng nhập
-    setUser(null); // Xóa thông tin người dùng
+    localStorage.removeItem("user"); // Remove user data from localStorage
+    setIsLoggedIn(false); // Update the login status
+    setUser(null); // Reset user state
   };
 
   return (

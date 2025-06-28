@@ -1,27 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import {
-    ROUTING_HOME,
-    ROUTING_LOGIN,
-    ROUTING_MOVIEDETAIL_NS,
-    ROUTING_MOVIEDETAIL_UC,
-    ROUTING_MOVIELIST_NS,
-    ROUTING_MOVIELIST_UC,
-    ROUTING_SIGNUP,
-    ROUTING_THEATER_DETAIL,
-    ROUTING_PROMOTIONLIST,
-    ROUTING_INFO,
-    ROUTING_TICKET_HISTORY,
-    ROUTING_CONTACT_FROM,
-    ROUTING_ORDER_PAYMENT,
-    ROUTING_ADMIN,
-    ROUTING_USER_MANAGEMENT,
-    ROUTING_MOVIE_MANAGEMENT,
-    ROUTING_ROOM_MANAGEMENT,
-    ROUTING_TICKET_MANAGEMENT,
-    ROUTING_ORDER_MANAGEMENT, ROUTING_DASHBOARD, ROUTING_USER_CREATE, ROUTING_MOVIE_CREATE
-} from "./path";
+import { ROUTING_HOME, ROUTING_LOGIN, ROUTING_MOVIEDETAIL_NS, ROUTING_MOVIEDETAIL_UC, ROUTING_MOVIELIST_NS, ROUTING_MOVIELIST_UC, ROUTING_SIGNUP, ROUTING_THEATER_DETAIL, ROUTING_PROMOTIONLIST, ROUTING_INFO, ROUTING_TICKET_HISTORY, ROUTING_CONTACT_FROM, ROUTING_ORDER_PAYMENT } from "./path";
 import { HomePage } from "../page/Home.js";
 import { Layout } from "../page/layout.js";
 import { SignUpPage } from "../page/SignUp.js";
@@ -36,24 +16,16 @@ import { CustomerInfo } from "../page/CustomerInfo.js";
 import { TicketHistory } from "../page/TicketHistory.js";
 import { ContactForm } from "../page/ContactForm.js";
 import { OrderPayment } from "../page/OrderPayment.js";
-import {AdminLayout} from "../admin-page/admin-layout";
-import Dashboard from "../admin-page/dashboard";
-import {UserManagement} from "../admin-page/user-management";
-import {UserCreate} from "../admin-page/user-create";
-import {MovieManagement} from "../admin-page/movie-management";
-import { OrderManagement } from "../admin-page/order-management.js";
-import {ToastContainer} from "react-toastify";
-import {MovieCreate} from "../admin-page/movie-create";
 
 const ScrollToTop = () => {
     const location = useLocation();
-
+  
     useEffect(() => {
-        window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
     }, [location]);
-
+  
     return null;
-};
+  };
 
 
 
@@ -61,7 +33,7 @@ const WebRouter = () => {
 
     return (
         <BrowserRouter>
-            <ScrollToTop />
+        <ScrollToTop />
             <Routes>
                 <Route path={""} element={<Layout />}>
                     {/* Trang mặc định */}
@@ -95,22 +67,9 @@ const WebRouter = () => {
 
                     {/* Trang thanh toán */}
                     <Route path={ROUTING_ORDER_PAYMENT} element={<OrderPayment />} />
-
-
-
                 </Route>
-                <Route path={ROUTING_ADMIN} element={<AdminLayout />}>
-                <Route path="/admin/dashboard" element={<Dashboard />} />
-                    <Route path={ROUTING_USER_MANAGEMENT} element={<UserManagement />} />
-                    <Route path={ROUTING_USER_CREATE} element={<UserCreate />} />
-                    <Route path={ROUTING_MOVIE_CREATE} element={<MovieCreate />} />
-                    <Route path={ROUTING_MOVIE_MANAGEMENT} element={<MovieManagement />} />
-                    <Route path={ROUTING_ORDER_MANAGEMENT} element={<OrderManagement />} />
-                </Route>
+
             </Routes>
-
-            <ToastContainer/>
-
         </BrowserRouter>
     )
 

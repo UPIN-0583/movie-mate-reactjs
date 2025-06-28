@@ -4,7 +4,7 @@ import { useMovies } from "../context/MovieContext";
 import { ROUTING_MOVIEDETAIL_NS } from "../router/path";
 import { Link } from "react-router-dom";
 
-const Navigate = ({movie, days, cinemas, times}) => {
+const Navigate = () => {
   const [selectedCinema, setSelectedCinema] = useState("");
   const [selectedMovie, setSelectedMovie] = useState("");
   const [selectedDay, setSelectedDay] = useState("");
@@ -13,6 +13,10 @@ const Navigate = ({movie, days, cinemas, times}) => {
   const { movies } = useMovies();
 
   // Lấy dữ liệu từ movies
+  const movie = movies.movie || [];
+  const days = movies.days || [];
+  const cinemas = movies.cinemas || [];
+  const times = movies.times || [];
 
   return (
     <div className="bg-[#27282D] flex items-center justify-center space-x-4 p-4 rounded-lg">
@@ -89,7 +93,8 @@ const Navigate = ({movie, days, cinemas, times}) => {
       </div>
 
       {/* Nút Đặt vé nhanh */}
-      <Link to={ROUTING_MOVIEDETAIL_NS}>
+      <Link
+        to={ROUTING_MOVIEDETAIL_NS}>
         <button className="flex items-center justify-center px-4 py-2 bg-yellow-400 text-black font-bold text-lg rounded-lg border-4 border-yellow-400">
           <img src={images.bookingIcon} alt="Booking" className="w-6 h-6" />
           <div className="ms-2">Đặt vé nhanh</div>

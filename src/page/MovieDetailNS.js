@@ -6,15 +6,8 @@ import { MovieSchedule } from "../components/MovieSchedule";
 import { MovieInfo } from "../components/MovieInfo";
 import { ROUTING_WATCHTRAILER_NS } from "../router";
 import images from "../asset";
-import {useLocation} from "react-router-dom";
-import {useGetMovieById} from "../api/movie/useGetMovieById";
 
 const MovieDetailNS = () => {
-
-  const { state } = useLocation();
-  const movieId = state?.movieId;
-  const poster = state?.poster; // Nhận đường dẫn ảnh từ state
-
   const daysOfWeek = [
     "Chủ Nhật",
     "Thứ Hai",
@@ -31,21 +24,14 @@ const MovieDetailNS = () => {
     const month = date.getMonth() + 1;
     return `${day} ${dayOfMonth}/${month}`;
   };
-// Sử dụng hook để lấy thông tin chi tiết phim
-  const { data: movieDetails, isFetching, error } = useGetMovieById(movieId);
+
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [selectedCombos, setSelectedCombos] = useState({});
   const [selectedSchedule, setSelectedSchedule] = useState(null);
   const [selectedCinema, setSelectedCinema] = useState("MovieMate Nguyễn Du");
+  const [selectedMovie, setSelectedMovie] = useState("Domino: Lối Thoát Cuối Cùng");
   const [selectedTime, setSelectedTime] = useState("14:00");
   const [selectedDate, setSelectedDate] = useState(formatDate(new Date()));
-
-
-
-// Xử lý trạng thái đang tải
-  if (isFetching) {
-    return <div className="text-white text-center">Đang tải dữ liệu...</div>;
-  }
 
   const handleScheduleSelect = (schedule) => {
     setSelectedSchedule(schedule);
@@ -68,16 +54,16 @@ const MovieDetailNS = () => {
       <div className="container mx-auto px-4 py-10 ">
         {/* Poster và Thông Tin Phim */}
         <MovieInfo
-            movie={movieDetails?.name || "Tên phim"}
-            poster={poster}
-            genres={movieDetails?.genres || []}
-            rating={movieDetails?.classify || "N/A"}
-            duration={movieDetails?.duration || "N/A"}
-            description={movieDetails?.description || "Mô tả phim không có sẵn"}
-            producer="Hà Khả Nguyên"
-            director={movieDetails?.director || "Không rõ"}
-            cast={movieDetails?.actor || []}
-            onWatchTrailerClick={handleWatchTrailerClick}
+          movie={selectedMovie}
+          poster={images.NowShowingMovie}
+          genres={['Hành Động', 'Tâm Lý']}
+          rating="PG"
+          duration="1h 55m"
+          description="Sau khi cha bị kẻ ác sát hại, từ người ngoài cuộc, An (Thuận Nguyễn) từng bước bị kéo vào cuộc chiến của các phe đảng xã hội đen. An một mình sẽ phải đối mặt với những nguy hiểm đe dọa đến cả tính mạng."
+          producer="Nguyễn Phúc Huy Cương"
+          director="Nguyễn Phúc Huy Cương"
+          cast={['Thuận Nguyễn', 'Quốc Cường', 'Henry Nguyễn', 'Huỳnh Anh Tuấn', 'Cát Hạ']}
+          onWatchTrailerClick={handleWatchTrailerClick}
         />
 
         {/* Lịch chiếu */}
@@ -100,7 +86,7 @@ const MovieDetailNS = () => {
               selectedSeats={selectedSeats}
               selectedCombos={selectedCombos}
               selectedCinema={selectedCinema}
-              selectedMovie={movieDetails?.name}
+              selectedMovie={selectedMovie}
               selectedTime={selectedTime}
               selectedDate={selectedDate}
             />

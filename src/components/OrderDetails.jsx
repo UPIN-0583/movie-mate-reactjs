@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {ROUTING_HOME, ROUTING_TICKET_HISTORY} from "../router"
-import {toast} from "react-toastify";
+import {ROUTING_TICKET_HISTORY} from "../router"
 
 const OrderDetails = ({ orderData }) => {
   // Lấy các dữ liệu từ props (orderData)
@@ -23,12 +22,10 @@ const OrderDetails = ({ orderData }) => {
       <hr className="my-4 border-gray-600" />
       <div className="flex justify-between items-center text-lg font-semibold text-white px-2">
         <p className="text-yellow-400">Thành tiền:</p>
-        <p>{totalAmount}</p>
+        <p>{totalAmount} đ</p>
       </div>
       <Link
-        to = {ROUTING_HOME}
-        onClick={() => toast.success("Đặt vé thành công!")}
-      >
+      to = {ROUTING_TICKET_HISTORY}>
         <button className="mt-4 bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg w-full ">
           Xác nhận đã thanh toán
         </button>
